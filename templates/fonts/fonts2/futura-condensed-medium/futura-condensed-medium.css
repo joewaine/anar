@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Futura MdCn BT';
+  src: url('futura-condensed-medium.eot'); /* IE9 Compat Modes */
+  src: url('futura-condensed-medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('futura-condensed-medium.woff') format('woff'), /* Modern Browsers */
+       url('futura-condensed-medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('futura-condensed-medium.svg#bc4fe788867d8c34c36e67bcf154db77') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+

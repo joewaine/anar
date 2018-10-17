@@ -1,0 +1,58 @@
+{% for item in craft.entries.section('stories') %}
+<section id="{{ item.slug }}" class="body-section stories">
+
+
+<div class="stories-layer">
+
+{% set step = 0 %}
+{% for block in item.stories %}
+    {% if block.type == "text" %}
+{% set step = step + 1 %}
+<div class="story story-{{step}}" data-type="{{block.type}}">&nbsp;
+    <div class="story-text">
+      {{ block.textContent }}
+  </div>
+</div>
+{% if step % 5 == 3 %}<div class="story story-blank">&nbsp;</div>{% endif %}
+    {% elseif block.type == "image" %}
+  {% set step = step + 1 %}
+<div class="story story-{{step}}" data-type="{{block.type}}">&nbsp;
+<div class="story-image">
+{% for asset in block.imageContent %}
+    <img src="/img/{{ asset.getPath() }}">
+{% endfor %}
+</div>
+</div>
+{% if step % 5 == 3 %}<div class="story story-blank">&nbsp;</div>{% endif %}
+    {% elseif block.type == "video" %}
+
+{% set step = step + 1 %}
+<div class="story story-{{step}}" data-type="{{block.type}}">&nbsp;
+    <div class="video">
+      {{ block.videoContent }}
+  </div>
+</div>
+{% if step % 5 == 3 %}<div class="story story-blank">&nbsp;</div>{% endif %}
+    {% endif %}
+{% endfor %}
+
+
+
+</div>
+
+
+<div class="background-layer">
+
+<div class="stories-vertical">&nbsp;</div>
+<div class="stories-vertical">&nbsp;</div>
+<div class="stories-vertical">&nbsp;</div>
+<div class="stories-vertical">&nbsp;</div>
+<div class="stories-vertical">&nbsp;</div>
+<div class="stories-vertical">&nbsp;</div>
+
+
+</div>
+
+
+</section>
+{% endfor %}

@@ -1,0 +1,118 @@
+<nav>
+
+
+<img class="anar-logo" src="/img/logo.svg">
+
+
+
+<ul class="main-nav">
+{% for item in craft.entries.section('navigationLinks') %}
+<li>
+<a class="nav-link futura-bold" href="#{{ item.slug }}">
+{{ item.title }}
+</a>
+</li>
+{% endfor %}
+</ul>
+
+
+<ul class="social">
+{% for item in craft.entries.section('mailingList') %}
+  <li>
+    <div class="mailing-list-join">
+    <a href="{{ item.linkUrl }}">
+      {# join mailing list #}
+<img src="/img/mailing-list.svg">
+    </a>
+    </div>
+  </li>
+{% endfor %}
+
+{% for socialItem in craft.entries.section('socialLinks') %}
+<li>
+<a target="_blank" href="{{ socialItem.linkUrl }}">
+{% for asset in socialItem.socialIcon %}
+    <img src="/img/{{ asset.getPath() }}">
+{% endfor %}
+</a>
+</li>
+{% endfor %}
+
+
+
+
+
+</ul>
+<div class="mobile-menu">_</div>
+</nav>
+
+<div class="navwave desktop">navwave</div>
+
+
+
+{# <div class="slideDownMenu">123
+
+<div class="slideDownMenuContainer">
+<div class="slideDownMenuBottom">
+  2124
+</div>
+</div>
+</div> #}
+
+
+
+<div class="mob-men">
+<div class="mob-men-boundary">
+
+{# nav here #}
+
+<ul class="main-nav mobile">
+{% for item in craft.entries.section('navigationLinks') %}
+<li>
+<a class="nav-link futura-bold" href="#{{ item.slug }}">
+{{ item.title }}
+</a>
+</li>
+{% endfor %}
+</ul>
+
+
+
+
+<ul class="social mobile">
+{% for item in craft.entries.section('mailingList') %}
+  <li>
+    <div class="mailing-list-join">
+    <a href="{{ item.linkUrl }}">
+      {# join mailing list #}
+<img src="/img/mailing-list.svg">
+    </a>
+    </div>
+  </li>
+{% endfor %}
+
+{% for socialItem in craft.entries.section('socialLinks') %}
+<li>
+<a target="_blank" href="{{ socialItem.linkUrl }}">
+{% for asset in socialItem.socialIcon %}
+    <img src="/img/{{ asset.getPath() }}">
+{% endfor %}
+</a>
+</li>
+{% endfor %}
+
+
+
+
+
+</ul>
+
+
+{# nav here #}
+
+<div class="navwave">navwave</div>
+
+</div>
+</div>
+
+

@@ -1,0 +1,94 @@
+
+
+/*img*/
+
+
+
+.letter-1{
+    width: 25%;
+    float: left;
+}
+
+#log img,
+.letter-1 img{
+    width: 100%;
+height: 500px;
+}
+
+
+
+
+
+.log-1 img,
+.log-2 img,
+.log-3 img,
+.log-4 img{
+
+    height: 455px;
+/*width: */
+    /*width: 100%;*/
+
+}
+
+
+
+
+
+
+
+.quarter{
+    width: 25%;
+    float: left;
+}
+
+.log-1,
+.log-2,
+.log-3,
+.log-4{
+    width: 100%;
+    /*margin: 0 auto;*/
+    /*height: 400px;*/
+    text-align: center;
+    background: transparent;
+/*float: left;*/
+}
+
+
+body{
+    height: 100vh;
+    /*background-image: url(../img/bg.png);*/
+    background-size: 100;
+
+}
+
+.a{
+    /*background-color: rgba(0,0,40,.5);*/
+    width: 22%;
+
+    margin-right: 4.8%;
+}
+
+
+.n{
+  /*background-color: rgba(0,0,40,.5);*/
+      width: 22%;
+          margin-right: 5.7%;
+}
+
+.a2{
+    width: 22%;
+    margin-right: 4.6%;
+}
+
+
+.r{
+  /*background-color: rgba(0,0,40,.5);*/
+    width: 18%;
+}
+
+
+.container{
+    width: 90%;
+    margin: 45px auto 135px;
+    height: 590px;
+}

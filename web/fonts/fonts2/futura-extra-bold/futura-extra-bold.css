@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Futura';
+  src: url('futura-extra-bold.eot'); /* IE9 Compat Modes */
+  src: url('futura-extra-bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('futura-extra-bold.woff') format('woff'), /* Modern Browsers */
+       url('futura-extra-bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('futura-extra-bold.svg#3b6656a50b5dff2d05ab7ca1b5dedeae') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+

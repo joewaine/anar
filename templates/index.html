@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <title>Anar Seattle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+
+{% includeCssFile "css/futura.css" %}
+{% includeCssFile "css/futura-medium.css" %}
+{% includeCssFile "css/futura-medium-italic.css" %}
+{% includeCssFile "css/futura-light-italic.css" %}
+{% includeCssFile "css/futura-italic.css" %}
+{% includeCssFile "css/futura-extra-bold.css" %}
+{% includeCssFile "css/futura-condensed.css" %}
+{% includeCssFile "css/futura-condensed-medium.css" %}
+{% includeCssFile "css/futura-condensed-bold.css" %}
+{% includeCssFile "css/futura-condensed-bold-italic.css" %}
+{% includeCssFile "css/futura-bold.css" %}
+{% includeCssFile "css/futura-bold-italic.css" %}
+{% includeCssFile "css/futura-black.css" %}
+{% includeCssFile "css/futura-black-italic.css" %}
+
+
+{% includeCssFile "css/normalize.css" %}
+{% includeCssFile "css/reset.css" %}
+{% includeCssFile "css/style.css" %}
+{% includeCssFile "css/landing-images.css" %}
+
+
+
+{% includeCssFile "css/animation.css" %}
+
+</head>
+<body class="scrollEffectMagic">
+
+{% include 'parts/nav.twig' %}
+{% include 'parts/landing.twig' %}
+{% include 'parts/info.twig' %}
+{% include 'parts/press.twig' %}
+{% include 'parts/stories.twig' %}
+{% include 'parts/shop.twig' %}
+{% include 'parts/menu-order.twig' %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$('.sub-mod').click(function(){
+
+  $(this).toggleClass('hold-original');
+  $(this).parent().find('.mod-info').slideToggle();
+  $(this).parent().toggleClass('no-top-marge');
+});
+
+</script>
+
+<script type="text/javascript">
+
+$('body').scroll(function() {
+  $('#press').css('background-position', $(this).scrollTop() + 'px')
+});
+</script>
+
+
+
+
+
+<script>
+$('.story').click(function(){
+
+// $('body').addClass('stop-scrolling')
+// $('body').bind('touchmove', function(e){e.preventDefault()})
+
+if($(this).data('type') === "text"){
+
+$('body').prepend('<div class="story-modal" data-type="text"><div class="text-content">'+ $(this).find('div.story-text')[0].innerHTML +'<div class="close">x</div></div></div>');
+
+}else if(($(this).data('type') === "video")){
+
+$('body').prepend('<div class="story-modal" data-type="video"><div class="videoContainer">'+ $(this).find('div.video')[0].innerHTML +'</div><div class="close">x</div></div>');
+
+}else if(($(this).data('type') === "image")){
+  $('body').prepend('<div class="story-modal" data-type="image" style="background: url('+ $(this).find('img').attr('src') +') no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">'+ $(this).data('type') +'<div class="close">x</div></div>');
+}else{
+ $('body').prepend('<div class="story-modal" data-type="none">'+ $(this).data('type') +'<div class="close">x</div></div>');
+}
+
+});
+
+$('body').on('click','.story-modal .close', function(){
+
+  $('.story-modal').remove();
+  // $('body').unbind('touchmove');
+  // $('body').removeClass('stop-scrolling');
+
+});
+
+
+
+</script>
+
+
+
+
+
+
+
+<script>
+
+$('.mobile-menu').click(function(){
+  $('.mob-men-boundary').toggleClass('expanded');
+});
+
+
+
+
+</script>
+
+<script type="text/javascript">
+
+$('#landing-logo')
+  .mouseover(function() {
+
+$('.img1:first-child .cls-1').addClass('multicolor-hover-1');
+$('.img1:nth-child(2) .cls-1').addClass('multicolor-hover-2');
+$('.img1:nth-child(3) .cls-1').addClass('multicolor-hover-3');
+$('.img1:nth-child(4) .cls-1').addClass('multicolor-hover-4');
+$('.img1:nth-child(5) .cls-1').addClass('multicolor-hover-1');
+$('.img1:nth-child(6) .cls-1').addClass('multicolor-hover-2');
+$('.img1:nth-child(7) .cls-1').addClass('multicolor-hover-4');
+
+    $('.marquee, .marquee2, .img1').css('animation-play-state', 'running');
+  })
+  .mouseout(function() {
+$('.img1:first-child .cls-1').removeClass('multicolor-hover-1');
+$('.img1:nth-child(2) .cls-1').removeClass('multicolor-hover-2');
+$('.img1:nth-child(3) .cls-1').removeClass('multicolor-hover-3');
+$('.img1:nth-child(4) .cls-1').removeClass('multicolor-hover-4');
+$('.img1:nth-child(5) .cls-1').removeClass('multicolor-hover-1');
+$('.img1:nth-child(6) .cls-1').removeClass('multicolor-hover-2');
+$('.img1:nth-child(7) .cls-1').removeClass('multicolor-hover-4');
+
+    $('.marquee, .marquee2, .img1').css('animation-play-state', 'paused');
+  });
+
+
+</script>
+
+
+<script type="text/javascript">
+
+let offtop = $("#svg-section").offset();
+
+function positionTheDot(path,circle,multiplier) {
+
+var tempScrollTop = $('body').scrollTop();
+
+let corheight = offtop.top - $("#svg-section").height();
+if(tempScrollTop > corheight){
+  let minus = tempScrollTop - corheight;
+
+
+console.log(minus/$("#svg-section").height());
+
+  let percentageDistance = minus/$("#svg-section").height();
+
+
+  var path = document.getElementById(path);
+  var pathLen = path.getTotalLength();
+
+
+  if(percentageDistance > 1){
+    var pt = path.getPointAtLength(pathLen);
+
+  }else{
+    var pt = path.getPointAtLength(percentageDistance * pathLen);
+  }
+
+let randposorneg = Math.round(Math.random()) * 2 - 1;
+let spin = Math.floor(percentageDistance*100*3.6)
+
+
+// berry limb fix
+
+if(Math.floor(percentageDistance*100*3.6) >= 350){
+$('#berry_limb_dest').css('fill','#bb9bc5');
+$('#star_limb_dest').css('fill','#90d5ac');
+
+}else{
+$('#berry_limb_dest').css('fill','transparent');
+$('#star_limb_dest').css('fill','transparent');
+}
+
+
+  var dot = document.getElementById(circle);
+  dot.setAttribute("transform", "translate("+ pt.x + "," + pt.y + ") rotate(" + multiplier * spin + ")");
+  // dot.setAttribute("transform", "translate("+ pt.x + "," + pt.y + ")");
+
+
+if(percentageDistance >= .999){
+  // $('body').removeClass('scrollEffectMagic');
+    $('body').unbind( 'scroll' );
+    $('#animatedSvg').remove();
+    $('#animatedSvg2').show();
+
+}
+
+}
+};
+
+
+
+
+
+$(".scrollEffectMagic").on( 'scroll', function(){
+    positionTheDot('pompath','pom_dest',-1);
+    positionTheDot('bottlepath','bottle_dest',1);
+    positionTheDot('diamondpath','diamond_dest',-1);
+    positionTheDot('boltpath','bolt_dest',-1);
+    positionTheDot('droppath','drop_dest',-1);
+    positionTheDot('slicepath','slice_dest',1);
+    positionTheDot('pillpath','pill_dest',-1);
+    positionTheDot('arrowpath','arrow_dest',1);
+    positionTheDot('berrypath','berry_dest',1);
+    positionTheDot('berrypath','berry_limb_dest',1);
+    positionTheDot('yellowcirclepath','yellowcircle_dest',-1);
+    positionTheDot('cuppath','cup_dest',1);
+    positionTheDot('heartpath','heart_dest',-1);
+    positionTheDot('starpath-2','star_limb_dest',-1);
+    positionTheDot('starpath-2','star_dest-2',-1);
+    positionTheDot('septpath','sept_dest',1);
+    positionTheDot('starpath','star_dest',1);
+    positionTheDot('orangewedgepath','orangewedge_dest',1);
+});
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

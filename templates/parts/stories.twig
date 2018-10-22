@@ -9,6 +9,16 @@
     {% if block.type == "text" %}
 {% set step = step + 1 %}
 <div class="story story-{{step}}" data-type="{{block.type}}">&nbsp;
+
+
+<div class="front">
+<img class="front-image" src="/img/stories/story-{{step}}.svg">
+</div>
+<div class="back">
+  <img class="back-image" src="/img/stories-no-number/story-{{step}}.svg">
+</div>
+
+
     <div class="story-text">
       {{ block.textContent }}
   </div>
@@ -17,6 +27,14 @@
     {% elseif block.type == "image" %}
   {% set step = step + 1 %}
 <div class="story story-{{step}}" data-type="{{block.type}}">&nbsp;
+
+<div class="front">
+<img class="front-image" src="/img/stories/story-{{step}}.svg">
+</div>
+<div class="back">
+  <img class="back-image" src="/img/stories-no-number/story-{{step}}.svg">
+</div>
+
 <div class="story-image">
 {% for asset in block.imageContent %}
     <img src="/img/{{ asset.getPath() }}">
@@ -28,6 +46,14 @@
 
 {% set step = step + 1 %}
 <div class="story story-{{step}}" data-type="{{block.type}}">&nbsp;
+
+<div class="front">
+<img class="front-image" src="/img/stories/story-{{step}}.svg">
+</div>
+<div class="back">
+  <img class="back-image" src="/img/stories-no-number/story-{{step}}.svg">
+</div>
+
     <div class="video">
       {{ block.videoContent }}
   </div>

@@ -1,5 +1,9 @@
 <section id="press" class="body-section">
 <div class="pressContainer">
+
+
+
+  <div class="pressContainerHeader">press</div>
 <ul>
 
 {% for item in craft.entries.section('press') %}
@@ -36,6 +40,14 @@
 {% endfor %}
 
 
+
+{% for item in craft.entries.section('press') %}
+<li>
+  <a class="futura-italic" href="{{ item.linkUrl }}">{{ item.title }}</a>
+  <br>
+  <a class="futura" href="{{ item.linkUrl }}">{{ item.subTitle }}</a>
+</li>
+{% endfor %}
 
 </ul>
 </div>

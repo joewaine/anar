@@ -321,7 +321,7 @@ ul.main-nav li{
 }
 
 .pressContainer ul li{
-
+    margin-bottom: 12px;
 }
 
 
@@ -381,9 +381,6 @@ ul.main-nav li{
 
 
 
-#press{
-background: #000066;
-}
 
 
 
@@ -451,16 +448,13 @@ li .mailing-list-join a img {
     cursor: pointer;
 }
 
-
 #press{
         background-color: #fff;
         background-image: url('../img/PRESS-BG-2.svg') !important;
         background-size: 125%;
-
+        padding-top: 0;
+        background-color: #ffe98d;
     }
-
-
-
 
 .info-third{
     background-size: 90%;
@@ -520,6 +514,8 @@ li .mailing-list-join a img {
   -o-background-size: cover;
   background-size: cover;
 
+
+    display: inline-block;
 
 }
 
@@ -586,55 +582,104 @@ li .mailing-list-join a img {
     height: 600px;
 }
 
-.story-1{
-        background-image: url('../img/stories/story-1.svg');
+.story-1 .front{
+        /*background-image: url('../img/stories/story-1.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-2{
-        background-image: url('../img/stories/story-2.svg');
+.story-2 .front{
+        /*background-image: url('../img/stories/story-2.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-3{
-        background-image: url('../img/stories/story-3.svg');
+.story-3 .front{
+        /*background-image: url('../img/stories/story-3.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-4{
-        background-image: url('../img/stories/story-4.svg');
+.story-4 .front{
+        /*background-image: url('../img/stories/story-4.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-5{
-        background-image: url('../img/stories/story-5.svg');
+.story-5 .front{
+        /*background-image: url('../img/stories/story-5.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-6{
-        background-image: url('../img/stories/story-6.svg');
+.story-6 .front{
+        /*background-image: url('../img/stories/story-6.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-7{
-        background-image: url('../img/stories/story-7.svg');
+.story-7 .front{
+        /*background-image: url('../img/stories/story-7.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-8{
-        background-image: url('../img/stories/story-8.svg');
+.story-8 .front{
+        /*background-image: url('../img/stories/story-8.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-9{
-        background-image: url('../img/stories/story-9.svg');
+.story-9 .front{
+        /*background-image: url('../img/stories/story-9.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-10{
-        background-image: url('../img/stories/story-10.svg');
+.story-10 .front{
+        /*background-image: url('../img/stories/story-10.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-11{
-        background-image: url('../img/stories/story-11.svg');
+.story-11 .front{
+        /*background-image: url('../img/stories/story-11.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-12{
-        background-image: url('../img/stories/story-12.svg');
+.story-12 .front{
+        /*background-image: url('../img/stories/story-12.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-13{
-        background-image: url('../img/stories/story-13.svg');
+.story-13 .front{
+        /*background-image: url('../img/stories/story-13.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-14{
-        background-image: url('../img/stories/story-14.svg');
+.story-14 .front{
+        /*background-image: url('../img/stories/story-14.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
-.story-15{
-        background-image: url('../img/stories/story-15.svg');
+.story-15 .front{
+        /*background-image: url('../img/stories/story-15.svg');*/
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center center;
 }
 
 
-
-
+.back .back-image,
+.front .front-image,
+.back svg,
+.front svg{
+    /*height: 250px;*/
+}
 
 
 
@@ -713,6 +758,7 @@ z-index: 10;
 #press{
     padding-top: 0;
     padding-bottom: 0;
+    margin-top: -5px;
 }
 
 
@@ -1246,14 +1292,15 @@ html, body {
 }
 
 
+    width: 100%;
+
 @media (max-width: 640px){
-
-.story{
-     width: 50%;
+   .story{
+        line-height: 18vh;
+   }
 }
 
-}
-
+line-height: 18vh;
 
 /*box css*/
 
@@ -1415,12 +1462,18 @@ position: fixed;
 
 
     .mob-men{
-        width: 100%;position:fixed;
+        width: 100%;
+        position:fixed;
+        z-index: 1000;
     }
 
    .navwave {
-    bottom: -16px;
+        bottom: -20px;
+        height: 110px;
     }
+
+
+
 
 .anar-logo {
     width: 100px;
@@ -1500,10 +1553,9 @@ ul.main-nav{
 
 }
 
-@media (max-width: 800px){
-    .navwave {
-        bottom: -16px;
-    }
+
+.pressContainerHeader{
+    display: none;
 }
 
 
@@ -1524,8 +1576,35 @@ ul.main-nav{
 @media (max-width: 768px){
 
     .pressContainer {
-        width: 90%;
+        width: 100%;
     }
+
+
+
+.pressContainerHeader{
+    background-color: #ffe98d;
+    display: block;
+    background-image: url(../img/press-horizontal.svg);
+    background-repeat: repeat-x;
+    background-position: center center;
+    background-size: 100%;
+    height: 140px;
+    color: transparent;
+    background-size: cover;
+    background-position: left center;
+    margin-bottom: 40px;
+
+}
+
+#press{
+    background-image: none !important;
+    padding-top: 20px;
+}
+
+
+.pressContainer{
+    padding-top: 0;
+}
 
 }
 
@@ -1594,34 +1673,14 @@ body{
 
 
 .sub-mod{
-    -webkit-transition: transform 2s; /* Safari */
-    transition: transform 2s;
-}
-
-.sub-mod:hover{
-    -webkit-transform: rotate(180deg);
-     -webkit-transition-duration: 1s;
-    -webkit-animation-timing-function: linear;
-    -webkit-transform-origin: center center;
-}
-
-.sub-mod.hold-original:hover{
-        -webkit-transform: none;
-     -webkit-transition-duration: 0;
-    -webkit-animation-timing-function: none;
-    -webkit-transform-origin: none;
+    -webkit-transition: transform 1.5s; /* Safari */
+    transition: transform 1.5s;
 }
 
 svg{
     width: 100%;
     display: block;
-    /* width: 100%; */
-    /* position: absolute; */
-    /* top: 0; */
-    /* left: 0; */
-    /*background: pink;*/
     margin: 0 auto;
-    /*height: 500px;*/
 }
 
 
@@ -1637,10 +1696,213 @@ svg path{
 
 }
 
+
+
+.hold-original{
+        transform: rotate(180deg);
+     -webkit-transform: rotate(180deg);
+}
+
 #animatedSvg,
 #animatedSvg2{
     width: 70%;
     margin: 0 auto;
     /*padding-top: 100px;*/
     padding-top: 22vh;
+}
+
+
+
+
+
+
+
+#animatedSvg:hover #pom_dest,
+#animatedSvg:hover #bottle_dest,
+#animatedSvg:hover #diamond_dest,
+#animatedSvg:hover #bolt_dest,
+#animatedSvg:hover #drop_dest,
+#animatedSvg:hover #slice_dest{
+    -webkit-animation-name: multicolor-p;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-name: multicolor-p;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+
+
+#animatedSvg:hover #sept_dest,
+#animatedSvg:hover #orangewedge_dest,
+#animatedSvg:hover #pill_dest,
+#animatedSvg:hover #arrow_dest,
+#animatedSvg:hover #cup_dest{
+    -webkit-animation-name: multicolor-h;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-name: multicolor-h;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+
+
+#animatedSvg:hover #berry_dest,
+#animatedSvg:hover #berry_limb_dest,
+#animatedSvg:hover #heart_dest,
+#animatedSvg:hover #star_dest-2,
+#animatedSvg:hover #yellowcircle_dest,
+#animatedSvg:hover #star_dest,
+#animatedSvg:hover #star_limb_dest{
+    -webkit-animation-name: multicolor-s;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-name: multicolor-s;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+
+@media (max-width: 960px){
+
+    .info-third{
+        width: 100%;
+    }
+
+
+.pressContainer ul li:hover{
+    transform: none;
+    margin: 0;
+    margin-bottom: 0.35em;
+}
+
+
+}
+
+
+
+
+@media (max-width: 1080px){
+    #animatedSvg,
+    #animatedSvg2{
+        width: 100%;
+    }
+
+
+.story-modal .close {
+    background-image: url(../img/closebutton.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    position: absolute;
+    top: 95px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    color: transparent;
+}
+
+
+
+#stories{
+    background-image: url(../img/stories/stories-horizontal.svg);
+    background-repeat: no-repeat;
+    background-position: center 60px;
+    background-size: 90%;
+}
+
+.story .front, .story .back {
+    top: 30px;
+}
+
+
+#info-page {
+    padding-top: 0;
+    height: auto;
+}
+
+#info-page .container{
+    height: auto;
+}
+
+
+
+
+
+}
+
+
+
+
+
+@media (max-width: 480px){
+    .navwave {
+        bottom: -10px;
+    }
+}
+
+
+
+
+/*story flips*/
+
+
+
+.story .front,
+.story .back{
+width: 100%;
+height: 250px;
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.story .front{
+    /*background:green;*/
+    backface-visibility: hidden;
+}
+
+.story .back{
+    /*background:pink;*/
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+
+
+
+
+/*@media (max-width: 1400px){
+    .pressContainer {
+        width: 70%;
+    }
+}*/
+
+@media (max-width: 1200px){
+
+.info-third{
+    width: 100%;
+    height: 130px;
+    text-align: center;
+    float: none;
+}
+
+
+.info-third .sub-mod{
+    height: auto;
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+}
+
 }

@@ -58,7 +58,8 @@ $('.sub-mod').click(function(){
 <script type="text/javascript">
 
 $('body').scroll(function() {
-  $('#press').css('background-position', $(this).scrollTop() + 'px')
+  $('#press, .pressContainerHeader').css('background-position', $(this).scrollTop() + 'px')
+
 });
 </script>
 
@@ -200,9 +201,9 @@ $('#star_limb_dest').css('fill','transparent');
 
 if(percentageDistance >= .999){
   // $('body').removeClass('scrollEffectMagic');
-    $('body').unbind( 'scroll' );
-    $('#animatedSvg').remove();
-    $('#animatedSvg2').show();
+    // $('body').unbind( 'scroll' );
+    // $('#animatedSvg').remove();
+    // $('#animatedSvg2').show();
 
 }
 

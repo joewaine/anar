@@ -57,10 +57,19 @@ $('.sub-mod').click(function(){
 
 <script type="text/javascript">
 
-$('body').scroll(function() {
-  $('#press, .pressContainerHeader').css('background-position', $(this).scrollTop() + 'px')
 
+
+$('body').scroll(function() {
+  $('#press, .pressContainerHeader').css('background-position', $(this).scrollTop() + 'px');
+  $('.storiesContainerHeader').css('background-position', -1 * $(this).scrollTop() + 'px');
 });
+
+
+
+
+
+
+
 </script>
 
 
@@ -131,7 +140,13 @@ $('.img1:nth-child(5) .cls-1').addClass('multicolor-hover-1');
 $('.img1:nth-child(6) .cls-1').addClass('multicolor-hover-2');
 $('.img1:nth-child(7) .cls-1').addClass('multicolor-hover-4');
 
-    $('.marquee, .marquee2, .img1').css('animation-play-state', 'running');
+    // $('.marquee, .marquee2, .img1').css({'animation-play-state' : 'running' , '-webkit-animation-play-state' : 'running'});
+
+
+    $('.marquee, .marquee2, .img1').addClass('playing');
+
+
+
   })
   .mouseout(function() {
 $('.img1:first-child .cls-1').removeClass('multicolor-hover-1');
@@ -142,7 +157,13 @@ $('.img1:nth-child(5) .cls-1').removeClass('multicolor-hover-1');
 $('.img1:nth-child(6) .cls-1').removeClass('multicolor-hover-2');
 $('.img1:nth-child(7) .cls-1').removeClass('multicolor-hover-4');
 
-    $('.marquee, .marquee2, .img1').css('animation-play-state', 'paused');
+    // $('.marquee, .marquee2, .img1').css({'animation-play-state' : 'paused' , '-webkit-animation-play-state' : 'paused'});
+
+
+
+    $('.marquee, .marquee2, .img1').removeClass('playing');
+
+
   });
 
 
@@ -151,20 +172,20 @@ $('.img1:nth-child(7) .cls-1').removeClass('multicolor-hover-4');
 
 <script type="text/javascript">
 
-let offtop = $("#svg-section").offset();
+let offtop = $("#menu-order-svg").offset();
 
 function positionTheDot(path,circle,multiplier) {
 
 var tempScrollTop = $('body').scrollTop();
 
-let corheight = offtop.top - $("#svg-section").height();
+let corheight = offtop.top - $("#menu-order-svg").height();
 if(tempScrollTop > corheight){
   let minus = tempScrollTop - corheight;
 
 
-console.log(minus/$("#svg-section").height());
+console.log(minus/$("#menu-order-svg").height());
 
-  let percentageDistance = minus/$("#svg-section").height();
+  let percentageDistance = minus/$("#menu-order-svg").height();
 
 
   var path = document.getElementById(path);
@@ -238,12 +259,35 @@ $(".scrollEffectMagic").on( 'scroll', function(){
 
 
 
+$('.sub-mod').click(function(){
 
+
+
+
+
+$('body').prepend('<div class="story-modal submod" data-type="text"><div class="text-content">'+ $(this).parent().find('.mod-info-content').html() +'<div class="close">x</div></div></div>');
+
+
+});
+
+$('body').on('click','.story-modal .close', function(){
+
+  $('.story-modal').remove();
+  // $('body').unbind('touchmove');
+  // $('body').removeClass('stop-scrolling');
+
+});
 
 
 </script>
 
+<div class="info-modal">
 
+  <button class="modal-close">x</button>
+  <h1>
+  info modal
+</h1>
+</div>
 
 </body>
 </html>

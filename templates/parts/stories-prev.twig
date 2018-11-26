@@ -1,64 +1,75 @@
-{% set squareImage = {
-    mode: 'crop',
-    width: 360,
-    height: 360,
-    quality: 'auto',
-    position: 'center-center'
-} %}
-
-
-
 {% for item in craft.entries.section('stories') %}
 <section id="{{ item.slug }}" class="body-section stories">
   <div class="storiesContainerHeader">stories</div>
 
 <div class="stories-layer">
 
-
 {% set step = 0 %}
 {% for block in item.stories %}
     {% if block.type == "text" %}
 {% set step = step + 1 %}
+{# <div class="story story-{{step}}" data-type="{{block.type}}">&nbsp; #}
+
+
+{# <div class="front"> #}
+{# <img class="front-image" src="/img/stories/story-{{step}}.svg"> #}
+{# </div> #}
+{# <div class="back"> #}
+  {# <img class="back-image storyback-{{step}}" src="/img/stories-no-number/story-{{step}}.svg"> #}
+  {# <img class="storyback{{step}}" src="/img/stories-no-number/pommes.png"> #}
+
+  {# <img class="item" src="/img/stories-no-number/pommes.png"> #}
+
+{# </div> #}
+
+
+{#     <div class="story-title">
+      {{ block.storyTitle }}
+  </div>
+
+
+    <div class="story-text">
+      {{ block.textContent }}
+  </div>
+
+
+<div class="story-image">
+{% for asset in block.storyImage %}
+    <img src="/img/{{ asset.getPath() }}">
+{% endfor %}
+</div> #}
 
 
 
-<div class="story-container" data="{{step}}" ontouchstart="this.classList.toggle('hover');" data-type="{{block.type}}">
+{# </div> #}
+
+
+
+
+
+
+<div class="story-container" ontouchstart="this.classList.toggle('hover');">
   <div class="story">
     <div class="front">
       <!-- front content -->
-      <img class="front-image" src="/img/stories/story-{{step}}.svg">
+<img class="front-image" src="/img/stories/story-{{step}}.svg">
     </div>
+    <div class="back">
+        <img class="item" src="/img/stories-no-number/pommes.png">
 
 
-      {% if block.storyImage %}
-        {% for asset in block.previewImage %}
-          {# <div class="back" style="background-image: url(/img/{{ asset.getPath() }})"> #}
-
-        {{ asset.getPath() }}
-
-        <div class="back" style="background-image: url(img/{{ asset.getPath() }});width:{{ asset.getWidth(squareImage) }}px;height: {{ asset.getHeight(squareImage) }}px">
-           <img  src="/img/stories/masks/story-{{step}}.svg">
-           </div>
-        {% endfor %}
-      {% else %}
-
-
-
-
-
-
-          <div class="back" style="background-image: url(/img/stories-no-number/pommes.png)">
-            <img src="/img/stories/masks/story-{{step}}.svg">
     </div>
-      {% endif %}
-</div>
 
     <div class="story-title">
       {{ block.storyTitle }}
   </div>
+
+
     <div class="story-text">
       {{ block.textContent }}
   </div>
+
+
 <div class="story-image">
 {% for asset in block.storyImage %}
     <img src="/img/{{ asset.getPath() }}">
@@ -67,7 +78,7 @@
 
 
 
-
+  </div>
 </div>
 
 
@@ -76,29 +87,36 @@
 {% if step % 5 == 3 %}<div class="story-container story-blank">&nbsp;</div>{% endif %}
     {% elseif block.type == "image" %}
   {% set step = step + 1 %}
+{# <div class="story story-{{step}}" data-type="{{block.type}}">&nbsp; #}
+
+{# <div class="front"> #}
+{# <img class="front-image" src="/img/stories/story-{{step}}.svg"> #}
+{# </div> #}
+{# <div class="back"> #}
+  {# <img class="back-image" src="/img/stories-no-number/story-{{step}}.svg"> #}
+    {# <img class="storyback-{{step}}" src="/img/stories-no-number/pommes.png"> #}
+
+      {# <img class="item" src="/img/stories-no-number/pommes.png"> #}
+
+{# </div> #}
+
+{# <div class="story-image"> #}
+{# {% for asset in block.imageContent %} #}
+    {# <img src="/img/{{ asset.getPath() }}"> #}
+{# {% endfor %} #}
+{# </div> #}
+{# </div> #}
 
 
-
-<div class="story-container" data="{{step}}" ontouchstart="this.classList.toggle('hover');" data-type="{{block.type}}">
+<div class="story-container" ontouchstart="this.classList.toggle('hover');">
   <div class="story">
     <div class="front">
       <!-- front content -->
-      <img class="front-image" src="/img/stories/story-{{step}}.svg">
+<img class="front-image" src="/img/stories/story-{{step}}.svg">
     </div>
-      {% if block.storyImage %}
-        {% for asset in block.previewImage %}
-          <div class="back" style="background-image: url(/img/{{ asset.getPath() }})">
-           <img src="/img/stories/masks/story-{{step}}.svg">
-               </div>
-        {% endfor %}
-      {% else %}
-          <div class="back" style="background-image: url(/img/stories-no-number/pommes.png)">
-            <img src="/img/stories/masks/story-{{step}}.svg">
-          </div>
-      {% endif %}
-
-      </div>
-
+    <div class="back">
+        <img class="item" src="/img/stories-no-number/pommes.png">
+    </div>
     <div class="story-title">
       {{ block.storyTitle }}
   </div>
@@ -111,32 +129,42 @@
 {% endfor %}
 </div>
 
+  </div>
 </div>
 
 
 {% if step % 5 == 3 %}<div class="story-container story-blank">&nbsp;</div>{% endif %}
     {% elseif block.type == "video" %}
+
 {% set step = step + 1 %}
-<div class="story-container" data="{{step}}"ontouchstart="this.classList.toggle('hover');" data-type="{{block.type}}">
+{# <div class="story story-{{step}}" data-type="{{block.type}}">&nbsp;
+
+<div class="front">
+<img class="front-image" src="/img/stories/story-{{step}}.svg">
+</div>
+<div class="back">
+  <img class="back-image" src="/img/stories-no-number/story-{{step}}.svg">
+    {# <img class="storyback-{{step}}" src="/img/stories-no-number/pommes.png"> #}
+
+
+      {# <img class="item" src="/img/stories-no-number/pommes.png"> #}
+
+{# </div> #}
+
+    {# <div class="video"> #}
+      {# {{ block.videoContent }} #}
+  {# </div> #}
+{# </div> #}
+
+<div class="story-container" ontouchstart="this.classList.toggle('hover');">
   <div class="story">
     <div class="front">
       <!-- front content -->
-      <img class="front-image" src="/img/stories/story-{{step}}.svg">
+<img class="front-image" src="/img/stories/story-{{step}}.svg">
     </div>
-      {% if block.storyImage %}
-        {% for asset in block.previewImage %}
-          <div class="back" style="background-image: url(/img/{{ asset.getPath() }})">
-           <img  src="/img/stories/masks/story-{{step}}.svg">
-                </div>
-        {% endfor %}
-      {% else %}
-          <div class="back" style="background-image: url(/img/stories-no-number/pommes.png)">
-            <img src="/img/stories/masks/story-{{step}}.svg">
-                 </div>
-      {% endif %}
+    <div class="back">
+        <img class="item" src="/img/stories-no-number/pommes.png">
     </div>
-
-
     <div class="story-title">
       {{ block.storyTitle }}
   </div>
@@ -149,6 +177,7 @@
 {% endfor %}
 </div>
 
+  </div>
 </div>
 
 

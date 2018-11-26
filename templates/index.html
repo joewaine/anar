@@ -35,6 +35,9 @@
 </head>
 <body class="scrollEffectMagic">
 
+
+{% include 'parts/masks.twig' %}
+
 {% include 'parts/nav.twig' %}
 {% include 'parts/landing.twig' %}
 {% include 'parts/info.twig' %}
@@ -42,6 +45,8 @@
 {% include 'parts/stories.twig' %}
 {% include 'parts/shop.twig' %}
 {% include 'parts/menu-order.twig' %}
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -77,30 +82,30 @@ $('body').scroll(function() {
 
 
 <script>
-$('.story').click(function(){
+$('.story-container').click(function(){
 
 // $('body').addClass('stop-scrolling')
 // $('body').bind('touchmove', function(e){e.preventDefault()})
 
 if($(this).data('type') === "text"){
 
-$('body').prepend('<div class="story-modal" data-type="text"><div class="text-content">'+ $(this).find('div.story-text')[0].innerHTML +'<div class="close">x</div></div></div>');
+$('body').prepend('<div class="story-modal" data-type="text"><div class="container"><div class="text-title">'+ $(this).find('div.story-title')[0].innerHTML +'</div><div class="text-content">'+ $(this).find('div.story-text')[0].innerHTML +'<div class="close">x</div></div><div class="image-region"><img src="' + $(this).find('.story-image').find('img').attr('src') + '"></div></div></div>');
 
 }else if(($(this).data('type') === "video")){
 
 $('body').prepend('<div class="story-modal" data-type="video"><div class="videoContainer">'+ $(this).find('div.video')[0].innerHTML +'</div><div class="close">x</div></div>');
 
 }else if(($(this).data('type') === "image")){
-  $('body').prepend('<div class="story-modal" data-type="image" style="background: url('+ $(this).find('img').attr('src') +') no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">'+ $(this).data('type') +'<div class="close">x</div></div>');
+  $('body').prepend('<div class="story-modal" data-type="image" style="background: url('+ $(this).find('.story-image').find('img').attr('src') +') no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">'+ $(this).data('type') +'<div class="close">x</div></div>');
 }else{
  $('body').prepend('<div class="story-modal" data-type="none">'+ $(this).data('type') +'<div class="close">x</div></div>');
 }
 
 });
 
-$('body').on('click','.story-modal .close', function(){
+$('body').on('click','.story-modal.info .close', function(){
 
-  $('.story-modal').remove();
+  $('.story-modal.info').remove();
   // $('body').unbind('touchmove');
   // $('body').removeClass('stop-scrolling');
 
@@ -265,7 +270,7 @@ $('.sub-mod').click(function(){
 
 
 
-$('body').prepend('<div class="story-modal submod" data-type="text"><div class="text-content">'+ $(this).parent().find('.mod-info-content').html() +'<div class="close">x</div></div></div>');
+$('body').prepend('<div class="story-modal info submod" data-type="text"><div class="text-content">'+ $(this).parent().find('.mod-info-content').html() +'<div class="close">x</div></div></div>');
 
 
 });
@@ -288,6 +293,7 @@ $('body').on('click','.story-modal .close', function(){
   info modal
 </h1>
 </div>
+
 
 </body>
 </html>

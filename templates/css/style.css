@@ -2128,11 +2128,11 @@ svg path{
 
 
 @media (max-width: 1080px){
-    #animatedSvg,
+/*    #animatedSvg,
     #animatedSvg2{
         width: 100%;
     }
-
+*/
 
 .story-modal .close {
     background-image: url(../img/closebutton.svg);
@@ -2847,7 +2847,7 @@ height: 33vh;
 
 
 
-.text-content h1{
+.story-modal.info.submod .text-content h1{
     font-size: 40px;
     font-family: Futura;
     font-weight: 400;
@@ -2855,7 +2855,7 @@ height: 33vh;
     padding-left: 20px;
 }
 
-.text-content p{
+.story-modal.info.submod .text-content p{
     font-style: normal;
     padding-left: 20px;
     font-family: Futura;
@@ -2865,7 +2865,7 @@ height: 33vh;
     margin-bottom: 20px;
 }
 
-.text-content figure iframe{
+.story-modal.info.submod .text-content figure iframe{
     border: 0 !important;
     height: 400px !important;
     padding-left: 20px !important;

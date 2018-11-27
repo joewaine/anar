@@ -36,6 +36,7 @@
 <body class="scrollEffectMagic">
 
 
+
 {% include 'parts/masks.twig' %}
 
 {% include 'parts/nav.twig' %}
@@ -115,19 +116,11 @@ $('body').on('click','.story-modal.info .close', function(){
 
 </script>
 
-
-
-
-
-
-
 <script>
 
 $('.mobile-menu').click(function(){
   $('.mob-men-boundary').toggleClass('expanded');
 });
-
-
 
 
 </script>
@@ -145,13 +138,7 @@ $('.img1:nth-child(5) .cls-1').addClass('multicolor-hover-1');
 $('.img1:nth-child(6) .cls-1').addClass('multicolor-hover-2');
 $('.img1:nth-child(7) .cls-1').addClass('multicolor-hover-4');
 
-    // $('.marquee, .marquee2, .img1').css({'animation-play-state' : 'running' , '-webkit-animation-play-state' : 'running'});
-
-
     $('.marquee, .marquee2, .img1').addClass('playing');
-
-
-
   })
   .mouseout(function() {
 $('.img1:first-child .cls-1').removeClass('multicolor-hover-1');
@@ -161,12 +148,7 @@ $('.img1:nth-child(4) .cls-1').removeClass('multicolor-hover-4');
 $('.img1:nth-child(5) .cls-1').removeClass('multicolor-hover-1');
 $('.img1:nth-child(6) .cls-1').removeClass('multicolor-hover-2');
 $('.img1:nth-child(7) .cls-1').removeClass('multicolor-hover-4');
-
-    // $('.marquee, .marquee2, .img1').css({'animation-play-state' : 'paused' , '-webkit-animation-play-state' : 'paused'});
-
-
-
-    $('.marquee, .marquee2, .img1').removeClass('playing');
+$('.marquee, .marquee2, .img1').removeClass('playing');
 
 
   });
@@ -188,9 +170,23 @@ if(tempScrollTop > corheight){
   let minus = tempScrollTop - corheight;
 
 
-console.log(minus/$("#menu-order-svg").height());
+
 
   let percentageDistance = minus/$("#menu-order-svg").height();
+
+
+
+if(percentageDistance > .9999){
+  percentageDistance = .9999
+}
+
+
+
+
+
+
+
+
 
 
   var path = document.getElementById(path);
@@ -209,29 +205,16 @@ let spin = Math.floor(percentageDistance*100*3.6)
 
 
 // berry limb fix
-
 if(Math.floor(percentageDistance*100*3.6) >= 350){
 $('#berry_limb_dest').css('fill','#bb9bc5');
 $('#star_limb_dest').css('fill','#90d5ac');
-
 }else{
 $('#berry_limb_dest').css('fill','transparent');
 $('#star_limb_dest').css('fill','transparent');
 }
 
-
   var dot = document.getElementById(circle);
   dot.setAttribute("transform", "translate("+ pt.x + "," + pt.y + ") rotate(" + multiplier * spin + ")");
-  // dot.setAttribute("transform", "translate("+ pt.x + "," + pt.y + ")");
-
-
-if(percentageDistance >= .999){
-  // $('body').removeClass('scrollEffectMagic');
-    // $('body').unbind( 'scroll' );
-    // $('#animatedSvg').remove();
-    // $('#animatedSvg2').show();
-
-}
 
 }
 };
@@ -260,6 +243,36 @@ $(".scrollEffectMagic").on( 'scroll', function(){
     positionTheDot('starpath','star_dest',1);
     positionTheDot('orangewedgepath','orangewedge_dest',1);
 });
+
+
+
+
+var lastX = window.innerWidth
+var lastY = window.innerHeight
+
+function fooOnResize() {
+   var x = window.innerWidth
+   var y = window.innerHeight
+   // if (lastX <= 768 && 768 < x) {
+
+       if (lastX < x) {
+
+
+
+
+$('#animatedSvg2').css('display','block');
+$('#animatedSvg').css('display','none');
+
+
+
+   }
+   lastX = x
+   lastY = y
+}
+
+window.addEventListener("resize", fooOnResize)
+
+
 
 
 
@@ -293,6 +306,9 @@ $('body').on('click','.story-modal .close', function(){
   info modal
 </h1>
 </div>
+
+
+
 
 
 </body>

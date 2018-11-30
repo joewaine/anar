@@ -90,7 +90,7 @@ $('.story-container').click(function(){
 
 if($(this).data('type') === "text"){
 
-$('body').prepend('<div class="story-modal" data-type="text"><div class="container"><div class="text-title">'+ $(this).find('div.story-title')[0].innerHTML +'</div><div class="text-content">'+ $(this).find('div.story-text')[0].innerHTML +'<div class="close">x</div></div><div class="image-region"><img src="' + $(this).find('.story-image').find('img').attr('src') + '"></div></div></div>');
+$('body').prepend('<div class="story-modal" data-type="text"><div class="container"><div class="text-title">'+ $(this).find('div.story-title')[0].innerHTML +'</div><div class="image-region"><img src="' + $(this).find('.story-image').find('img').attr('src') + '"></div><div class="text-content">'+ $(this).find('div.story-text')[0].innerHTML +'<div class="close">x</div></div></div></div>');
 
 }else if(($(this).data('type') === "video")){
 

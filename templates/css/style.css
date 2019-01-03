@@ -453,7 +453,7 @@ li .mailing-list-join a img {
 
 #press{
         background-color: #fff;
-        background-image: url('../img/PRESS-BG-2.svg') !important;
+        background-image: url('../img/PRESS-BG-3.svg') !important;
         background-size: 125%;
         padding-top: 0;
         background-color: #ffe98d;
@@ -570,11 +570,11 @@ li .mailing-list-join a img {
 
 
 .mod-info{
-    position: absolute;
-    z-index: 10;
+    /*position: absolute;*/
+    /*z-index: 10;*/
     display: none;
     width: 100%;
-    top: 200px;
+    /*top: 200px;*/
 }
 
 .mod-info-content{
@@ -1200,7 +1200,7 @@ margin-bottom: 0;*/
 
 
 #shop-svg{
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
 
@@ -1363,12 +1363,15 @@ map > div {
 
 #info-page .container{
     margin: 0 auto;
+    min-height: 100vh;
 }
 
 
 .mod-info-content{
     color: #848484;
-        padding-top: 210px;
+    padding-top: 210px;
+
+    /*margin-top: -200px;*/
 }
 
 
@@ -1804,7 +1807,7 @@ ul.main-nav{
 
 
 .mob-men-boundary.expanded{
-    /* height: 300px; */
+     height: 310px;
     margin-top: 0px;
 }
 
@@ -1815,7 +1818,8 @@ ul.main-nav{
 }
 
 .main-nav.mobile{
-    height: 230px;
+    height: 190px;
+
     padding-top: 52px;
     padding-left: 2px;
 }
@@ -1839,7 +1843,8 @@ ul.main-nav{
 
 .main-nav.mobile li{
     display: block;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
+
 }
 
 .main-nav.mobile li a{
@@ -1856,18 +1861,10 @@ ul.main-nav{
 
 
 
-@media (max-width: 1200px){
-    .pressContainer {
-    width: 80%;
-}
-}
-
 
 @media (max-width: 1080px){
 
-    .pressContainer {
-        width: 80%;
-    }
+
 
     .boxcont {
         top: 100px;
@@ -1940,6 +1937,7 @@ ul.main-nav{
 .pressContainer{
     background: white;
     padding-top: 20px;
+
 }
 
 }
@@ -2037,6 +2035,10 @@ svg path{
 .hold-original{
         transform: rotate(180deg);
      -webkit-transform: rotate(180deg);
+
+
+
+
 }
 
 #animatedSvg,
@@ -2177,7 +2179,7 @@ svg path{
 
 
 #info-page .container{
-    height: auto;
+    /*height: auto;*/
 }
 
 
@@ -2556,7 +2558,7 @@ left: 0;
 }
 
 #shop{
-    min-height: 120vh;
+    min-height: 100vh;
 }
 
 .body-section.stories{
@@ -2617,11 +2619,15 @@ left: 0;
 }
 
 .stories-bg{
-    width: 33.33%;
+    width: 100px;
     background: #adadad;
     margin: 0 auto;
     padding-top: 60px;
     height: 120vh;
+    /*background-image: url(../img/story-logo.svg);*/
+    /*background-attachment: fixed;*/
+    /*background-position: 9px 100px;*/
+    /*background-repeat: no-repeat;*/
 }
 
 
@@ -2816,6 +2822,10 @@ height: 33vh;
 
 
 
+a.menu-order-button{
+    cursor: pointer;
+}
+
 
 
 @media (max-width: 768px){
@@ -2894,6 +2904,14 @@ height: 33vh;
 }
 
 
+
+.menu-order-button{
+    display: none;
+}
+
+
+
+
 @media (max-width: 960px){
 
 
@@ -2926,10 +2944,156 @@ height: 33vh;
     margin-left: -40%;
 }
 
+
+
+
+
+
+}
+
+
+
+
+
+@media (max-width: 960px){
+
+
+        .pressContainer {
+        width: 90%;
+    }
+}
+
+
+
+@media (max-width: 768px){
+
+.menu-order-button{
+    display: block;
+    width: 60%;
+    margin: 20px auto 0;
+}
+
+.menu-order-button svg{
+    width: 100%;
+    display: block;
+}
+
+
 #letters{
     display: none;
 }
 
 
+   .whitecircle{
+    display: none;
+   }
 
+   .whitecircle-mobile{
+    display: block;
+   }
+
+    .pressContainer {
+        width: 90%;
+    }
+
+}
+
+
+#info-page.body-section{
+    padding-top: 0;
+    position: relative;
+}
+
+
+
+
+/*.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}*/
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  /*whatever width you want*/
+}
+
+
+
+.third-box{
+  width: 33.33%;
+  float: left;
+  text-align: center;
+    -webkit-transition: transform 1.5s; /* Safari */
+    transition: transform 1.5s;
+    margin-top: 15%;
+    position: relative;
+
+
+}
+
+
+.third-box svg{
+    width: 80%;
+    -webkit-transition: transform 1.5s;
+    transition: transform 1.5s;
+    position: absolute;
+    left: 50%;
+    margin-left: -40%;
+    z-index: 1000;
+
+
+}
+
+
+.third-box{
+    transition: margin-top 0.5s ease;
+}
+
+.third-box.no-top-marge{
+    margin-top: -250px;
+}
+
+
+
+
+@media (max-width: 768px){
+#info-page .container {
+
+}
+
+
+.third-box {
+    width: 100%;
+}
+
+.third-box svg{
+    width: 40%;
+    margin: 20px auto;
+}
+
+}
+
+
+
+.error{
+    color: #DF5857;
+}
+
+.thankyou, .error{
+    color: black;
+    display: none;
+    font-size: 27px;
+    float: right;
+    margin-top: 30px;
 }

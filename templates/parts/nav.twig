@@ -17,12 +17,12 @@
 
 
 <ul class="social">
+
 {% for item in craft.entries.section('mailingList') %}
   <li>
     <div class="mailing-list-join">
-    <a href="{{ item.linkUrl }}">
-      {# join mailing list #}
-<img src="/img/mailing-list.svg">
+    <a data-toggle="modal" data-target="#modal" href="javascript://" id="button" style="color: #DF5857;font-size: 18px;outline: none;text-decoration:none;">
+      <img src="/img/mailing-list.svg">
     </a>
     </div>
   </li>

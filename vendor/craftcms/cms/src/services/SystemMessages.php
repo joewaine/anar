@@ -9,6 +9,7 @@ namespace craft\services;
 
 use Craft;
 use craft\db\Query;
+use craft\db\Table;
 use craft\events\RegisterEmailMessagesEvent;
 use craft\helpers\ArrayHelper;
 use craft\models\SystemMessage;
@@ -171,7 +172,6 @@ class SystemMessages extends Component
         $override = $this->_createMessagesQuery()
             ->select(['subject', 'body'])
             ->where(['key' => $key, 'language' => $language])
-            ->indexBy(null)
             ->one();
 
         // Combine them to create the final message
@@ -220,7 +220,7 @@ class SystemMessages extends Component
     {
         return (new Query())
             ->select(['key', 'subject', 'body'])
-            ->from(['{{%systemmessages}}'])
+            ->from([Table::SYSTEMMESSAGES])
             ->indexBy('key');
     }
 

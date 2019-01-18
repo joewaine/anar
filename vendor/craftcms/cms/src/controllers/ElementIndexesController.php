@@ -12,6 +12,7 @@ use craft\base\Element;
 use craft\base\ElementAction;
 use craft\base\ElementActionInterface;
 use craft\base\ElementInterface;
+use craft\elements\actions\Restore;
 use craft\elements\db\ElementQuery;
 use craft\elements\db\ElementQueryInterface;
 use craft\events\ElementActionEvent;
@@ -58,7 +59,7 @@ class ElementIndexesController extends BaseElementsController
     private $_viewState;
 
     /**
-     * @var ElementQueryInterface|null
+     * @var ElementQueryInterface|ElementQuery|null
      */
     private $_elementQuery;
 
@@ -71,11 +72,13 @@ class ElementIndexesController extends BaseElementsController
     // =========================================================================
 
     /**
-     * Initializes the application component.
+     * @inheritdoc
      */
-    public function init()
+    public function beforeAction($action)
     {
-        parent::init();
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
 
         $this->_elementType = $this->elementType();
         $this->_context = $this->context();
@@ -87,6 +90,8 @@ class ElementIndexesController extends BaseElementsController
         if ($this->_context === 'index' && $this->_sourceKey !== null) {
             $this->_actions = $this->_availableActions();
         }
+
+        return true;
     }
 
     /**
@@ -301,6 +306,9 @@ class ElementIndexesController extends BaseElementsController
 
         // Override with the request's params
         if ($criteria = $request->getBodyParam('criteria')) {
+            if (isset($criteria['trashed'])) {
+                $criteria['trashed'] = (bool)$criteria['trashed'];
+            }
             Craft::configure($query, $criteria);
         }
 
@@ -413,6 +421,17 @@ class ElementIndexesController extends BaseElementsController
                     unset($actions[$i]);
                 }
             }
+
+            if ($this->_elementQuery->trashed) {
+                if (!$action instanceof Restore) {
+                    unset($actions[$i]);
+                }
+            } else if ($action instanceof Restore) {
+                unset($actions[$i]);
+            }
+
+            /** @var ElementActionInterface $action */
+            $action->setElementType($elementType);
         }
 
         return array_values($actions);

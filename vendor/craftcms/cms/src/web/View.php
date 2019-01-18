@@ -283,7 +283,13 @@ class View extends \yii\web\View
      */
     public function registerTwigExtension(Twig_ExtensionInterface $extension)
     {
-        $this->_twigExtensions[] = $extension;
+        // Make sure this extension isn't already registered
+        $class = get_class($extension);
+        if (isset($this->_twigExtensions[$class])) {
+            return;
+        }
+
+        $this->_twigExtensions[$class] = $extension;
 
         // Add it to any existing Twig environments
         if ($this->_cpTwig !== null) {
@@ -466,13 +472,6 @@ class View extends \yii\web\View
 
         $twig = $this->getTwig();
 
-        // Temporarily disable strict variables if it's enabled
-        $strictVariables = $twig->isStrictVariables();
-
-        if ($strictVariables) {
-            $twig->disableStrictVariables();
-        }
-
         // Is this the first time we've parsed this template?
         $cacheKey = md5($template);
         if (!isset($this->_objectTemplates[$cacheKey])) {
@@ -506,6 +505,13 @@ class View extends \yii\web\View
 
         $variables['object'] = $object;
         $variables['_variables'] = $variables;
+
+        // Temporarily disable strict variables if it's enabled
+        $strictVariables = $twig->isStrictVariables();
+
+        if ($strictVariables) {
+            $twig->disableStrictVariables();
+        }
 
         // Render it!
         $twig->setDefaultEscaperStrategy(false);
@@ -1512,7 +1518,7 @@ JS;
         $name = trim(FileHelper::normalizePath($name), '/');
 
         // $name could be an empty string (e.g. to load the homepage template)
-        if ($name) {
+        if ($name !== '') {
             // Maybe $name is already the full file path
             $testPath = $basePath . DIRECTORY_SEPARATOR . $name;
 
@@ -1531,7 +1537,7 @@ JS;
 
         foreach ($this->_indexTemplateFilenames as $filename) {
             foreach ($this->_defaultTemplateExtensions as $extension) {
-                $testPath = $basePath . ($name ? DIRECTORY_SEPARATOR . $name : '') . DIRECTORY_SEPARATOR . $filename . '.' . $extension;
+                $testPath = $basePath . ($name !== '' ? DIRECTORY_SEPARATOR . $name : '') . DIRECTORY_SEPARATOR . $filename . '.' . $extension;
 
                 if (is_file($testPath)) {
                     return $testPath;
@@ -1721,6 +1727,10 @@ JS;
             $html .= ' data-editable';
         }
 
+        if ($element->trashed) {
+            $html .= ' data-trashed';
+        }
+
         $html .= '>';
 
         if ($context['context'] === 'field' && isset($context['name'])) {
@@ -1741,7 +1751,7 @@ JS;
 
         $label = HtmlHelper::encode($element);
 
-        if ($context['context'] === 'index' && ($cpEditUrl = $element->getCpEditUrl())) {
+        if ($context['context'] === 'index' && !$element->trashed && ($cpEditUrl = $element->getCpEditUrl())) {
             $cpEditUrl = HtmlHelper::encode($cpEditUrl);
             $html .= "<a href=\"{$cpEditUrl}\">{$label}</a>";
         } else {

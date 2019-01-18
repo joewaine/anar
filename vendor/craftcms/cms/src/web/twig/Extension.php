@@ -9,12 +9,14 @@ namespace craft\web\twig;
 
 use Craft;
 use craft\base\MissingComponentInterface;
+use craft\base\PluginInterface;
 use craft\elements\Asset;
 use craft\elements\db\ElementQuery;
 use craft\helpers\ArrayHelper;
 use craft\helpers\DateTimeHelper;
 use craft\helpers\Db;
 use craft\helpers\FileHelper;
+use craft\helpers\Sequence;
 use craft\helpers\StringHelper;
 use craft\helpers\Template as TemplateHelper;
 use craft\helpers\UrlHelper;
@@ -45,6 +47,7 @@ use DateTimeZone;
 use enshrined\svgSanitize\Sanitizer;
 use yii\base\InvalidArgumentException;
 use yii\base\InvalidConfigException;
+use yii\db\Expression;
 use yii\helpers\Markdown;
 
 /**
@@ -706,17 +709,22 @@ class Extension extends \Twig_Extension implements \Twig_Extension_GlobalsInterf
     {
         return [
             new \Twig_SimpleFunction('alias', [Craft::class, 'getAlias']),
+            new \Twig_SimpleFunction('actionInput', [$this, 'actionInputFunction']),
             new \Twig_SimpleFunction('actionUrl', [UrlHelper::class, 'actionUrl']),
             new \Twig_SimpleFunction('cpUrl', [UrlHelper::class, 'cpUrl']),
             new \Twig_SimpleFunction('ceil', 'ceil'),
             new \Twig_SimpleFunction('className', 'get_class'),
             new \Twig_SimpleFunction('clone', [$this, 'cloneFunction']),
             new \Twig_SimpleFunction('csrfInput', [$this, 'csrfInputFunction']),
+            new \Twig_SimpleFunction('expression', [$this, 'expressionFunction']),
             new \Twig_SimpleFunction('floor', 'floor'),
             new \Twig_SimpleFunction('getenv', 'getenv'),
+            new \Twig_SimpleFunction('parseEnv', [Craft::class, 'parseEnv']),
+            new \Twig_SimpleFunction('plugin', [$this, 'pluginFunction']),
             new \Twig_SimpleFunction('redirectInput', [$this, 'redirectInputFunction']),
             new \Twig_SimpleFunction('renderObjectTemplate', [$this, 'renderObjectTemplate']),
             new \Twig_SimpleFunction('round', [$this, 'roundFunction']),
+            new \Twig_SimpleFunction('seq', [$this, 'seqFunction']),
             new \Twig_SimpleFunction('shuffle', [$this, 'shuffleFunction']),
             new \Twig_SimpleFunction('siteUrl', [UrlHelper::class, 'siteUrl']),
             new \Twig_SimpleFunction('svg', [$this, 'svgFunction']),
@@ -760,6 +768,28 @@ class Extension extends \Twig_Extension implements \Twig_Extension_GlobalsInterf
     }
 
     /**
+     * @param mixed $expression
+     * @param mixed $params
+     * @param mixed $config
+     * @return Expression
+     */
+    public function expressionFunction($expression, $params = [], $config = []): Expression
+    {
+        return new Expression($expression, $params, $config);
+    }
+
+    /**
+     * Returns a plugin instance by its handle.
+     *
+     * @param string $handle The plugin handle
+     * @return PluginInterface|null The plugin, or `null` if it's not installed
+     */
+    public function pluginFunction(string $handle)
+    {
+        return Craft::$app->getPlugins()->getPlugin($handle);
+    }
+
+    /**
      * Returns a redirect input wrapped in a \Twig_Markup object.
      *
      * @param string $url The URL to redirect to.
@@ -768,6 +798,16 @@ class Extension extends \Twig_Extension implements \Twig_Extension_GlobalsInterf
     public function redirectInputFunction(string $url): \Twig_Markup
     {
         return TemplateHelper::raw('<input type="hidden" name="redirect" value="' . Craft::$app->getSecurity()->hashData($url) . '">');
+    }
+
+    /**
+     * Returns an action input wrapped in a \Twig_Markup object, suitable for use in a front-end form.
+     *
+     * @return \Twig_Markup|null
+     */
+    public function actionInputFunction($actionPath)
+    {
+        return TemplateHelper::raw('<input type="hidden" name="action" value="' . $actionPath . '">');
     }
 
     /**
@@ -784,6 +824,25 @@ class Extension extends \Twig_Extension implements \Twig_Extension_GlobalsInterf
         Craft::$app->getDeprecator()->log('round()', 'The round() function has been deprecated. Use Twig’s |round filter instead.');
 
         return round($value, $precision, $mode);
+    }
+
+    /**
+     * Returns the next number in a given sequence, or the current number in the sequence.
+     *
+     * @param string $name The sequence name.
+     * @param int|null $length The minimum string length that should be returned. (Numbers that are too short will be left-padded with `0`s.)
+     * @param bool $next Whether the next number in the sequence should be returned (and the sequence should be incremented).
+     * If set to `false`, the current number in the sequence will be returned instead.
+     * @return integer|string
+     * @throws \Throwable if reasons
+     * @throws \yii\db\Exception
+     */
+    public function seqFunction(string $name, int $length = null, bool $next = true)
+    {
+        if ($next) {
+            return Sequence::next($name, $length);
+        }
+        return Sequence::current($name, $length);
     }
 
     /**
@@ -816,13 +875,19 @@ class Extension extends \Twig_Extension implements \Twig_Extension_GlobalsInterf
     }
 
     /**
-     * Returns the (sanitized) contents of a given SVG file, namespacing any of its IDs in the process.
+     * Returns the contents of a given SVG file.
      *
-     * @param string|Asset $svg An SVG asset, a file path, or XML data
-     * @param bool $sanitize Whether the file should be sanitized first
+     * @param string|Asset $svg An SVG asset, a file path, or raw SVG markup
+     * @param bool|null $sanitize Whether the SVG should be sanitized of potentially
+     * malicious scripts. By default the SVG will only be sanitized if an asset
+     * or markup is passed in. (File paths are assumed to be safe.)
+     * @param bool|null $namespace Whether class names and IDs within the SVG
+     * should be namespaced to avoid conflicts with other elements in the DOM.
+     * By default the SVG will only be namespaced if an asset or markup is passed in.
+     * @param string|null $class A CSS class name that should be added to the `<svg>` element.
      * @return \Twig_Markup|string
      */
-    public function svgFunction($svg, bool $sanitize = true)
+    public function svgFunction($svg, bool $sanitize = null, bool $namespace = null, string $class = null)
     {
         if ($svg instanceof Asset) {
             try {
@@ -840,27 +905,62 @@ class Extension extends \Twig_Extension implements \Twig_Extension_GlobalsInterf
                 return '';
             }
             $svg = file_get_contents($svg);
+
+            // This came from a file path, so pretty good chance that the SVG can be trusted.
+            $sanitize = $sanitize ?? false;
+            $namespace = $namespace ?? false;
         }
+
+        // Sanitize and namespace the SVG by default
+        $sanitize = $sanitize ?? true;
+        $namespace = $namespace ?? true;
 
         // Sanitize?
         if ($sanitize) {
             $svg = (new Sanitizer())->sanitize($svg);
+            // Remove comments, title & desc
+            $svg = preg_replace('/<!--.*?-->\s*/s', '', $svg);
+            $svg = preg_replace('/<title>.*?<\/title>\s*/is', '', $svg);
+            $svg = preg_replace('/<desc>.*?<\/desc>\s*/is', '', $svg);
         }
 
         // Remove the XML declaration
         $svg = preg_replace('/<\?xml.*?\?>/', '', $svg);
 
-        // Namespace any IDs
-        if (strpos($svg, 'id=') !== false) {
-            $namespace = StringHelper::randomStringWithChars('abcdefghijklmnopqrstuvwxyz', 10) . '-';
+        // Namespace class names and IDs
+        if (
+            $namespace && (
+                strpos($svg, 'id=') !== false || strpos($svg, 'class=') !== false)
+        ) {
+            $ns = StringHelper::randomStringWithChars('abcdefghijklmnopqrstuvwxyz', 10) . '-';
             $ids = [];
-            $svg = preg_replace_callback('/\bid=([\'"])([^\'"]+)\\1/i', function($matches) use ($namespace, &$ids) {
+            $classes = [];
+            $svg = preg_replace_callback('/\bid=([\'"])([^\'"]+)\\1/i', function($matches) use ($ns, &$ids) {
                 $ids[] = $matches[2];
-                return "id={$matches[1]}{$namespace}{$matches[2]}{$matches[1]}";
+                return "id={$matches[1]}{$ns}{$matches[2]}{$matches[1]}";
+            }, $svg);
+            $svg = preg_replace_callback('/\bclass=([\'"])([^\'"]+)\\1/i', function($matches) use ($ns, &$classes) {
+                $newClasses = [];
+                foreach (preg_split('/\s+/', $matches[2]) as $c) {
+                    $classes[] = $c;
+                    $newClasses[] = $ns . $c;
+                }
+                return 'class=' . $matches[1] . implode(' ', $newClasses) . $matches[1];
             }, $svg);
             foreach ($ids as $id) {
                 $quotedId = preg_quote($id, '\\');
-                $svg = preg_replace("/#{$quotedId}\b(?!\-)/", "#{$namespace}{$id}", $svg);
+                $svg = preg_replace("/#{$quotedId}\b(?!\-)/", "#{$ns}{$id}", $svg);
+            }
+            foreach ($classes as $c) {
+                $quotedClass = preg_quote($c, '\\');
+                $svg = preg_replace("/\.{$quotedClass}\b(?!\-)/", ".{$ns}{$c}", $svg);
+            }
+        }
+
+        if ($class !== null) {
+            $svg = preg_replace('/(<svg\b[^>]+\bclass=([\'"])[^\'"]+)(\\2)/i', "$1 {$class}$3", $svg, 1, $count);
+            if ($count === 0) {
+                $svg = preg_replace('/<svg\b/i', "$0 class=\"{$class}\"", $svg, 1);
             }
         }
 
@@ -920,12 +1020,12 @@ class Extension extends \Twig_Extension implements \Twig_Extension_GlobalsInterf
 
         // Only set these things when Craft is installed and not being updated
         if ($isInstalled && !Craft::$app->getUpdates()->getIsCraftDbMigrationNeeded()) {
-            $globals['systemName'] = Craft::$app->getInfo()->name;
+            $globals['systemName'] = Craft::$app->getProjectConfig()->get('system.name');
             /** @noinspection PhpUnhandledExceptionInspection */
             $site = Craft::$app->getSites()->getCurrentSite();
             $globals['currentSite'] = $site;
             $globals['siteName'] = $site->name;
-            $globals['siteUrl'] = Craft::getAlias($site->baseUrl);
+            $globals['siteUrl'] = $site->getBaseUrl();
 
             // Global sets (site templates only)
             if ($templateMode === View::TEMPLATE_MODE_SITE) {

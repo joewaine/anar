@@ -56,14 +56,26 @@ class GeneralConfig extends BaseObject
      */
     public $aliases = [];
     /**
+     * @var bool Whether admins should be allowed to make administrative changes to the system.
+     *
+     * If this is disabled, the Settings and Plugin Store sections will be hidden,
+     * the Craft edition and Craft/plugin versions will be locked, and the project config will become read-only.
+     *
+     * Therefore you should only disable this in production environments when [[useProjectConfigFile]] is enabled,
+     * and you have a deployment workflow that runs `composer install` automatically on deploy.
+     */
+    public $allowAdminChanges = true;
+    /**
      * @var bool Whether Craft should allow system and plugin updates in the Control Panel, and plugin installation from the Plugin Store.
+     *
+     * This setting will automatically be disabled if [[allowAdminChanges]] is disabled.
      */
     public $allowUpdates = true;
     /**
      * @var string[] The file extensions Craft should allow when a user is uploading files.
      * @see extraAllowedFileExtensions
      */
-    public $allowedFileExtensions = ['7z', 'aiff', 'asf', 'avi', 'bmp', 'csv', 'doc', 'docx', 'fla', 'flv', 'gif', 'gz', 'gzip', 'htm', 'html', 'jp2', 'jpeg', 'jpg', 'jpx', 'js', 'json', 'm2t', 'mid', 'mov', 'mp3', 'mp4', 'm4a', 'm4v', 'mpc', 'mpeg', 'mpg', 'ods', 'odt', 'ogg', 'ogv', 'pdf', 'png', 'potx', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx', 'ppz', 'pxd', 'qt', 'ram', 'rar', 'rm', 'rmi', 'rmvb', 'rtf', 'sdc', 'sitd', 'svg', 'swf', 'sxc', 'sxw', 'tar', 'tgz', 'tif', 'tiff', 'txt', 'vob', 'vsd', 'wav', 'webm', 'wma', 'wmv', 'xls', 'xlsx', 'zip'];
+    public $allowedFileExtensions = ['7z', 'aiff', 'asf', 'avi', 'bmp', 'csv', 'doc', 'docx', 'fla', 'flv', 'gif', 'gz', 'gzip', 'htm', 'html', 'jp2', 'jpeg', 'jpg', 'jpx', 'js', 'json', 'm2t', 'mid', 'mov', 'mp3', 'mp4', 'm4a', 'm4v', 'mpc', 'mpeg', 'mpg', 'ods', 'odt', 'ogg', 'ogv', 'pdf', 'png', 'potx', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx', 'ppz', 'pxd', 'qt', 'ram', 'rar', 'rm', 'rmi', 'rmvb', 'rtf', 'sdc', 'sitd', 'svg', 'swf', 'sxc', 'sxw', 'tar', 'tgz', 'tif', 'tiff', 'txt', 'vob', 'vsd', 'wav', 'webm', 'webp', 'wma', 'wmv', 'xls', 'xlsx', 'zip'];
     /**
      * @var bool Whether users should be allowed to create similarly-named tags.
      */
@@ -100,8 +112,13 @@ class GeneralConfig extends BaseObject
      */
     public $backupCommand;
     /**
-     * @var string|null The base URL that Craft should use when generating Control Panel URLs. This will be determined
-     * automatically if left blank.
+     * @var string|null The base URL that Craft should use when generating Control Panel URLs.
+     *
+     * It will be determined automatically if left blank.
+     *
+     * ::: tip
+     * The base CP URL should **not** include the [[cpTrigger|CP trigger word]] (e.g. `/admin`).
+     * :::
      */
     public $baseCpUrl;
     /**
@@ -228,12 +245,12 @@ class GeneralConfig extends BaseObject
      * - `5` – Friday
      * - `6` – Saturday
      */
-    public $defaultWeekStartDay = 0;
+    public $defaultWeekStartDay = 1;
     /**
      * @var bool By default, Craft will require a 'password' field to be submitted on front-end, public
      * user registrations. Setting this to `true` will no longer require it on the initial registration form.
      *
-     * If you have email verification enabled, the will set their password once they've clicked on the
+     * If you have email verification enabled, new users will set their password once they've clicked on the
      * verification link in the email. If you don't, the only way they can set their password is to go
      * through your "forgot password" workflow.
      */
@@ -289,6 +306,25 @@ class GeneralConfig extends BaseObject
      */
     public $extraAppLocales;
     /**
+     * @var array List of additional file kinds Craft should support. This array
+     * will get merged with the one defined in [[craft\helpers\Assets::_buildFileKinds()]].
+     *
+     * ```php
+     * 'extraFileKinds' => [
+     *     // merge .psb into list of Photoshop file kinds
+     *     'photoshop' => [
+     *         'extensions' => ['psb'],
+     *     ],
+     *     // register new "Stylesheet" file kind
+     *     'stylesheet' => [
+     *         'label' => 'Stylesheet',
+     *         'extensions' => ['css', 'less', 'pcss', 'sass', 'scss', 'styl'],
+     *     ],
+     * ],
+     * ```
+     */
+    public $extraFileKinds = [];
+    /**
      * @var string|bool The string to use to separate words when uploading Assets. If set to `false`, spaces will be left alone.
      */
     public $filenameWordSeparator = '-';
@@ -329,10 +365,10 @@ class GeneralConfig extends BaseObject
      */
     public $ipHeaders;
     /**
-     * @var bool|null Whether the site is currently online or not. If set to `true` or `false`, it will take precedence over the
+     * @var bool|null Whether the site is currently live. If set to `true` or `false`, it will take precedence over the
      * System Status setting in Settings → General.
      */
-    public $isSystemOn;
+    public $isSystemLive;
     /**
      * @var bool Whether non-ASCII characters in auto-generated slugs should be converted to ASCII (i.e. ñ → n).
      *
@@ -552,6 +588,12 @@ class GeneralConfig extends BaseObject
      * where PHP’s [flush()](http://php.net/manual/en/function.flush.php) method won’t work.
      *
      * If disabled, an alternate queue runner *must* be set up separately.
+     *
+     * Here is an example of how you would setup a queue runner from a cron job that ran every minute:
+     *
+     * ```text
+     * /1 * * * * /path/to/project/root/craft queue/run
+     * ```
      */
     public $runQueueAutomatically = true;
     /**
@@ -628,6 +670,18 @@ class GeneralConfig extends BaseObject
      */
     public $secureProtocolHeaders;
     /**
+     * @var mixed The amount of time before a soft-deleted item will be up for hard-deletion by garbage collection.
+     *
+     * Set to `0` if you don’t ever want to delete soft-deleted items.
+     *
+     * See [[ConfigHelper::durationInSeconds()]] for a list of supported value types.
+     */
+    public $softDeleteDuration = 2592000;
+    /**
+     * @var bool Whether user IP addresses should be stored/logged by the system.
+     */
+    public $storeUserIps = false;
+    /**
      * @var bool Whether Twig runtime errors should be suppressed.
      *
      * If it is set to `true`, the errors will still be logged to Craft’s log files.
@@ -656,7 +710,7 @@ class GeneralConfig extends BaseObject
      */
     public $translationDebugOutput = false;
     /**
-     * @var string The query string parameter name that tokens should be set to.
+     * @var string The query string parameter name that Craft tokens should be set to.
      */
     public $tokenParam = 'token';
     /**
@@ -717,6 +771,14 @@ class GeneralConfig extends BaseObject
      */
     public $useFileLocks;
     /**
+     * @var bool Whether the project config should be saved out to `config/project.yaml`.
+     *
+     * If set to `true`, a hard copy of your system’s project config will be saved in `config/project.yaml`,
+     * and any changes to `config/project.yaml` will be applied back to the system, making it possible for
+     * multiple environments to share the same project config despite having separate databases.
+     */
+    public $useProjectConfigFile = false;
+    /**
      * @var mixed The amount of time a user verification code can be used before expiring.
      *
      * See [[ConfigHelper::durationInSeconds()]] for a list of supported value types.
@@ -746,6 +808,7 @@ class GeneralConfig extends BaseObject
             'restoreDbOnUpdateFailure' => 'restoreOnUpdateFailure',
             'activateAccountFailurePath' => 'invalidUserTokenPath',
             'validationKey' => 'securityKey',
+            'isSystemOn' => 'isSystemLive',
         ];
 
         $configFilePath = null;
@@ -829,6 +892,7 @@ class GeneralConfig extends BaseObject
         $this->purgePendingUsersDuration = ConfigHelper::durationInSeconds($this->purgePendingUsersDuration);
         $this->rememberUsernameDuration = ConfigHelper::durationInSeconds($this->rememberUsernameDuration);
         $this->rememberedUserSessionDuration = ConfigHelper::durationInSeconds($this->rememberedUserSessionDuration);
+        $this->softDeleteDuration = ConfigHelper::durationInSeconds($this->softDeleteDuration);
         $this->userSessionDuration = ConfigHelper::durationInSeconds($this->userSessionDuration);
         $this->verificationCodeDuration = ConfigHelper::durationInSeconds($this->verificationCodeDuration);
 

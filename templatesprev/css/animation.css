@@ -1,0 +1,330 @@
+body{
+  overflow-x:hidden;
+  /*overflow-y:hidden;*/
+}
+
+#landing .actionbox{
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  z-index: 100;
+  background: pink;
+  top: 100px;
+  left: 200px;
+
+}
+
+#landing .container {
+    width: 100%;
+      display: block;
+    height: 12.5vh;
+    margin: 0;
+    margin-top: 10.5vh;
+}
+
+#landing #bottom-marquee.container {
+    width: 100%;
+      display: none;
+    height: 12.5vh;
+    margin: 0;
+    margin-top: 10.5vh;
+}
+
+
+
+
+
+
+
+#landing .container:nth-child(odd) .marquee{
+    float: left;
+    position:absolute;
+    width:100%;
+    /*height:160px;*/
+    animation-name:scroll;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name:scroll;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+
+
+    padding:0px;
+    left: 100%;
+    /*overflow:hidden;*/
+
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+
+#landing .container:nth-child(odd) .marquee2{
+    float: left;
+    position:absolute;
+    width:100%;
+    /*height:160px;*/
+    animation-name:scroll-2;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name:scroll-2;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+
+
+    padding:0px;
+    left: 0%;
+
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+
+
+}
+
+
+
+
+#landing .container:nth-child(even) .marquee{
+    float: left;
+    position:absolute;
+    width:100%;
+
+    animation-name:scroll-3;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name:scroll-3;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    padding:0px;
+    left: 100%;
+    /*overflow:hidden;*/
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+
+#landing .container:nth-child(even) .marquee2{
+    float: left;
+    position:absolute;
+    width:100%;
+
+    animation-name: scroll-4;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name: scroll-4;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    padding:0px;
+    left: 0%;
+
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+
+
+
+#landing .img1 {
+  width: 14.28%;
+  /*height:25vh;*/
+  float:left;
+
+
+
+}
+
+
+
+
+#landing .img1:nth-of-child(3n){
+  background-color: green;
+}
+
+/* Make it move */
+@keyframes scroll {
+0% {
+  left:100%;
+}
+100% {
+  left:0%;
+}
+}
+
+@keyframes scroll-2 {
+0% {
+  left:0%;
+}
+100% {
+  left:-100%;
+}
+}
+
+@keyframes scroll-3 {
+0% {
+  left:-100%;
+}
+100% {
+  left:0%;
+}
+}
+
+@keyframes scroll-4 {
+0% {
+  left:0%;
+}
+100% {
+  left:100%;
+}
+}
+
+
+
+
+
+@-webkit-keyframes scroll {
+0%{
+  left:100%;
+}
+100% {
+  left:0%;
+}
+}
+
+@-webkit-keyframes scroll-2 {
+
+0%{
+  left:0%;
+}
+100% {
+  left:-100%;
+}
+
+}
+
+@-webkit-keyframes scroll-3 {
+
+0%{
+  left:-100%;
+}
+100% {
+  left:0%;
+}
+
+}
+
+@-webkit-keyframes scroll-4 {
+0%{
+  left:0%;
+}
+100%{
+  left:100%;
+}
+}
+
+
+
+
+
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+#landing .img1 {
+/*  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+  animation-play-state: paused;*/
+  text-align: center;
+}
+
+
+
+
+
+#landing .img1 svg{
+  height: 150px;
+  margin: 0 auto;
+  width: 90%;
+
+}
+
+
+.marquee,
+.marquee2{
+  z-index: -1;
+}
+
+
+
+
+#bottom-marquee{
+    display: none;
+}
+
+@media (max-width: 768px){
+
+#bottom-marquee{
+    display: block;
+}
+
+#landing .container {
+    width: 100%;
+    display: block;
+    height: 10vh;
+    margin: 0;
+    margin-top: 9vh;
+}
+
+
+#landing #bottom-marquee.container {
+      display: block;
+}
+
+}
+
+
+
+.playing{
+animation-play-state: running !important;
+-webkit-animation-play-state: running !important;
+}
+

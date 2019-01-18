@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Futura Hv BT';
+  src: url('futura-medium.eot'); /* IE9 Compat Modes */
+  src: url('futura-medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('futura-medium.woff') format('woff'), /* Modern Browsers */
+       url('futura-medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('futura-medium.svg#abe28552df67548d04264d76071da393') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+

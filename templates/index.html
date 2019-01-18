@@ -38,14 +38,12 @@
 </head>
 <body class="scrollEffectMagic">
 
-
-
 {% include 'parts/masks.twig' %}
 
 {% include 'parts/nav.twig' %}
 {% include 'parts/landing.twig' %}
-<!-- {% include 'parts/info.twig' %} -->
-{% include 'parts/info2.twig' %}
+
+{% include 'parts/info.twig' %}
 {% include 'parts/press.twig' %}
 {% include 'parts/menu-order.twig' %}
 {% include 'parts/stories.twig' %}
@@ -329,16 +327,30 @@ window.addEventListener("resize", fooOnResize)
 
 
 
-$('.sub-mod').click(function(){
+$('.sub-mod2').click(function(){
 
 
 
+let indexOfInfo = parseInt($(this).index()) + 1;
+
+let prependContent = $('.container.desktop .info-third:nth-child(' + indexOfInfo + ') .mod-info-content').html();
+
+// $('.container.desktop .info-third:nth-child('+ $(this).index() + ')').find('.mod-info-content').html()
 
 
-$('body').prepend('<div class="story-modal info submod" data-type="text"><div class="text-content">'+ $(this).parent().find('.mod-info-content').html() +'<div class="close">x</div></div></div>');
+$('body').prepend('<div class="story-modal info submod" data-type="text"><div class="text-content">' + prependContent +'<div class="close">x</div></div></div>');
 
 
 });
+
+
+
+$(window).resize(function(){
+  $('.story-modal').remove();
+});
+
+
+
 
 $('body').on('click','.story-modal .close', function(){
 
@@ -361,6 +373,58 @@ $('body').on('click','.story-modal .close', function(){
 
 
 
+
+<script>
+
+
+$('.info-third').click(function(){
+
+
+
+// $('.info-third svg').removeClass('hold-original');
+
+
+if($(this).find('svg').hasClass('hold-original')){
+
+  $(this).find('svg').removeClass('hold-original');
+
+}else{
+
+  $(this).find('svg').addClass('hold-original');
+
+}
+
+
+
+if($(this).find('.mod-info').hasClass('closed')){
+
+  $(this).find('.mod-info').removeClass('closed')
+
+}else{
+
+  $(this).find('.mod-info').addClass('closed')
+
+}
+
+
+});
+
+
+</script>
+
+<script>
+
+  $('.story-container .back').each(function(){
+    $(this).css('height', $(this).css('width'));
+  });
+
+$(window).resize(function(){
+  $('.story-container .back').each(function(){
+    $(this).css('height', $(this).css('width'));
+  });
+});
+
+</script>
 
 
 </body>

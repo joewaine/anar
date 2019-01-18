@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Futura Md BT';
+  src: url('futura-black-italic.eot'); /* IE9 Compat Modes */
+  src: url('futura-black-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('futura-black-italic.woff') format('woff'), /* Modern Browsers */
+       url('futura-black-italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('futura-black-italic.svg#68d38d166b749940c3f5f1f9d52d7088') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  700;
+}
+

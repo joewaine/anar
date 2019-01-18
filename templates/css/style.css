@@ -1763,6 +1763,8 @@ position: fixed;
 }
 
 
+
+
 @media (max-width: 960px){
 
 
@@ -1815,11 +1817,14 @@ ul.main-nav{
 
 .mob-men-boundary{
     position: relative;
-    height: 350px;
+    height: 330px;
     background: #e26b69;
     transition: margin 0.3s ease-out;
-        margin-top: -350px;
+    margin-top: -290px;
 }
+
+
+
 
 .mob-men-boundary.expanded{
     margin-top: 0;
@@ -3273,3 +3278,27 @@ a.menu-order-button{
         height: 24vh;
     }
 }
+
+
+
+
+
+@media (max-width: 480px){
+    .mob-men-boundary{
+    margin-top: -380px;
+}
+
+
+
+.social.mobile{
+    margin-top: 22px;
+}
+
+
+.mob-men-boundary.expanded {
+    margin-top: -100px;
+}
+
+}
+
+

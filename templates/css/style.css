@@ -3123,7 +3123,7 @@ a.menu-order-button{
 @media (max-width: 960px){
 
 #animatedSvg, #animatedSvg2 {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
     padding-top: 100px;
 }

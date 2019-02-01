@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite42d2c1e6e2d8c00ee59f1be5dce0921
+class ComposerStaticInitf42eae8a566753f1aa075a7fc97d98c8
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -2513,6 +2513,7 @@ class ComposerStaticInite42d2c1e6e2d8c00ee59f1be5dce0921
         'craft\\redactor\\events\\RegisterPluginPathsEvent' => __DIR__ . '/..' . '/craftcms/redactor/src/events/RegisterPluginPathsEvent.php',
         'craft\\redactor\\migrations\\Install' => __DIR__ . '/..' . '/craftcms/redactor/src/migrations/Install.php',
         'craft\\redactor\\migrations\\m180430_204710_remove_old_plugins' => __DIR__ . '/..' . '/craftcms/redactor/src/migrations/m180430_204710_remove_old_plugins.php',
+        'craft\\redactor\\migrations\\m181101_110000_ids_in_settings_to_uids' => __DIR__ . '/..' . '/craftcms/redactor/src/migrations/m181101_110000_ids_in_settings_to_uids.php',
         'craft\\search\\SearchQuery' => __DIR__ . '/..' . '/craftcms/cms/src/search/SearchQuery.php',
         'craft\\search\\SearchQueryTerm' => __DIR__ . '/..' . '/craftcms/cms/src/search/SearchQueryTerm.php',
         'craft\\search\\SearchQueryTermGroup' => __DIR__ . '/..' . '/craftcms/cms/src/search/SearchQueryTermGroup.php',
@@ -3295,10 +3296,10 @@ class ComposerStaticInite42d2c1e6e2d8c00ee59f1be5dce0921
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite42d2c1e6e2d8c00ee59f1be5dce0921::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite42d2c1e6e2d8c00ee59f1be5dce0921::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInite42d2c1e6e2d8c00ee59f1be5dce0921::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInite42d2c1e6e2d8c00ee59f1be5dce0921::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf42eae8a566753f1aa075a7fc97d98c8::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf42eae8a566753f1aa075a7fc97d98c8::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf42eae8a566753f1aa075a7fc97d98c8::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf42eae8a566753f1aa075a7fc97d98c8::$classMap;
 
         }, null, ClassLoader::class);
     }

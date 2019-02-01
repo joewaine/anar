@@ -548,6 +548,7 @@ li .mailing-list-join a img {
     background-size: cover;
     padding-top: 0;
     padding-bottom: 0;
+    min-height: 120vh;
 }
 
 
@@ -3251,7 +3252,7 @@ a.menu-order-button{
 
 .story-container{
     display: inline-block;
-
+    height: 26vh;
 
 }
 

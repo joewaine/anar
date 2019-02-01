@@ -63,48 +63,48 @@ subscribe to our newsletter!
 
 
 
-<form id="subForm" class="js-cm-form" action="https://mamnoonrestaurant.createsend.com/t/i/s/vhyyhj/" method="post">
-  <a class="close" href="javascript://" data-dismiss="modal">
-      <img src="img/close-up-modal-red.svg" style="width: 27px;height: 27px;"></a>
-      <input placeholder="name" type="text" name="cm-name" id="name" /><br />
-      <input placeholder="email" type="text" name="cm-vhyyhj-vhyyhj" id="vhyyhj-vhyyhj" /><br />
-          <button class="submit" type="submit" value="Subscribe">Subscribe</button>
-  </form>
+
+<form id="subForm" class="js-cm-form" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="30FEA77E7D0A9B8D7616376B9006323142A9EB57CBF020B2B6197569C6F8F70BDBFC13D2CED9E4BECFE11712077402B30076F4D771D1E406B9E0CA93AC24E95B"><a class="close" href="javascript://" data-dismiss="modal">
+      <img src="/img/close-up-modal-red.svg" style="width: 27px;height: 27px;"></a>
+<p>
+    <input id="fieldName" name="cm-name" type="text" placeholder="name" />
+</p>
+<p>
+    <input id="fieldEmail" placeholder="email" name="cm-vhyyhj-vhyyhj" type="email" class="js-cm-email-input"
+    required />
+</p>
+<p>
 
 
+    <button class="js-cm-submit-button submit" type="submit" value="Subscribe">Subscribe</button>
+</p>
+</form>
+<script type="text/javascript" src="https://js.createsend1.com/javascript/copypastesubscribeformlogic.js"></script>
 
 
-
-<!--   <form action="https://mamnoonrestaurant.createsend.com/t/i/s/adrkjh/" method="post" id="subForm">
-    <a class="close" href="javascript://" data-dismiss="modal">
-      <img src="img/close-up-modal-red.svg" style="width: 27px;height: 27px;"></a>
-      <input placeholder="name" type="text" name="cm-name" id="name" /><br />
-      <input placeholder="email" type="text" name="cm-adrkjh-adrkjh" id="adrkjh-adrkjh" /><br />
-          <button class="submit" type="submit" value="Subscribe">Subscribe</button>
-  </form> -->
   <div class="thankyou">thank you!</div>
 <div class="error">invalid</div>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script type="text/javascript">
-      $(function () {
-          $('#subForm').submit(function (e) {
-              e.preventDefault();
-              $.getJSON(
-              this.action + "?callback=?",
-              $(this).serialize(),
-              function (data) {
-                  if (data.Status === 400) {
-                      // alert("Error: " + data.Message);
-                      $('#modal .error').slideDown();
-                      $('#modal .error').delay( 800 ).fadeOut();
-                  } else { // 200
-                      $('#modal .thankyou').slideDown().delay( 2000 ).fadeOut();
-                      $('#modal').delay( 800 ).fadeOut();
-$('#vhyyhj-vhyyhj, #name').val('');
-                  }
-              });
-          });
-      });
+//       $(function () {
+//           $('#subForm').submit(function (e) {
+//               e.preventDefault();
+//               $.getJSON(
+//               this.action + "?callback=?",
+//               $(this).serialize(),
+//               function (data) {
+//                   if (data.Status === 400) {
+//                       // alert("Error: " + data.Message);
+//                       $('#modal .error').slideDown();
+//                       $('#modal .error').delay( 800 ).fadeOut();
+//                   } else { // 200
+//                       $('#modal .thankyou').slideDown().delay( 2000 ).fadeOut();
+//                       $('#modal').delay( 800 ).fadeOut();
+// $('#vhyyhj-vhyyhj, #name').val('');
+//                   }
+//               });
+//           });
+//       });
   </script>
 </div>
 

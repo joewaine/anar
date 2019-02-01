@@ -1178,6 +1178,7 @@ width: 100%;
 #menu-order-svg.body-section{
     position: relative;
     overflow: hidden;
+    margin-top: -4px;
 }
 
 
@@ -2646,10 +2647,10 @@ left: 0;
     margin: 0 auto;
     padding-top: 60px;
     height: 120vh;
-    /*background-image: url(../img/story-logo.svg);*/
-    /*background-attachment: fixed;*/
-    /*background-position: 9px 100px;*/
-    /*background-repeat: no-repeat;*/
+    background-image: url(../../img/stories.png);
+    background-attachment: fixed;
+    background-position: top center;
+    background-repeat: no-repeat;
 }
 
 

@@ -81,7 +81,7 @@
       <!-- front content -->
       <img class="front-image" src="/img/stories/story-{{step}}.svg">
     </div>
-      {% if block.storyImage %}
+      {% if block.imageContent %}
         {% for asset in block.previewImage %}
           <div class="back" style="background-image: url(/img/{{ asset.getPath() }})">
            <img src="/img/stories/masks/story-{{step}}.svg">
@@ -102,7 +102,7 @@
       {{ block.textContent }}
   </div>
 <div class="story-image">
-{% for asset in block.storyImage %}
+{% for asset in block.imageContent %}
     <img src="/img/{{ asset.getPath() }}">
 {% endfor %}
 </div>

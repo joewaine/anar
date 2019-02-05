@@ -21,7 +21,6 @@
 
             // local
             this.isOpen = false;
-            this.docScroll = 0;
         },
         // public
         start: function()
@@ -34,7 +33,8 @@
             var button = this.toolbar.addButton('fullscreen', data);
             button.setIcon('<i class="re-icon-expand"></i>');
 
-            this.$target = (this.toolbar.isTarget()) ? this.toolbar.getTargetElement() : this.$body;
+            this.isTarget = (this.opts.toolbarFixedTarget !== document);
+            this.$target = (this.isTarget) ? $R.dom(this.opts.toolbarFixedTarget) : this.$body;
 
 			if (this.opts.fullscreen) this.toggle();
 
@@ -45,19 +45,20 @@
 		},
 		open: function()
 		{
-    		this.docScroll = this.$doc.scrollTop();
-
             this._createPlacemarker();
             this.selection.save();
 
             var $container = this.container.getElement();
             var $editor = this.editor.getElement();
-            var $html = (this.toolbar.isTarget()) ? $R.dom('body, html') : this.$target;
+            var $html = (this.isTarget) ? $R.dom('body, html') : this.$target;
 
             if (this.opts.toolbarExternal) this._buildInternalToolbar();
 
-            this.$target.prepend($container);
-			this.$target.addClass('redactor-body-fullscreen');
+            /* BEGIN HACK */
+            // make sure that the fullscreen modal is at the end of the DOM
+            this.$target.append($container);
+            /* END HACK */
+            this.$target.addClass('redactor-body-fullscreen');
 
             $container.addClass('redactor-box-fullscreen');
             if (this.isTarget) $container.addClass('redactor-box-fullscreen-target');
@@ -105,15 +106,14 @@
 
     		this._removePlacemarker($container);
             this.selection.restore();
-            this.$doc.scrollTop(this.docScroll);
+
 		},
 
 		// private
 		_resize: function()
 		{
-    		var $toolbar = this.toolbar.getElement();
             var $editor = this.editor.getElement();
-    		var height = this.$win.height() - $toolbar.height();
+    		var height = this.$win.height();
 
     		$editor.height(height);
 		},

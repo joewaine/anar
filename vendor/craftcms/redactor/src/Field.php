@@ -13,7 +13,6 @@ use craft\base\ElementInterface;
 use craft\base\Volume;
 use craft\elements\Category;
 use craft\elements\Entry;
-use craft\helpers\Db;
 use craft\helpers\FileHelper;
 use craft\helpers\Html;
 use craft\helpers\HtmlPurifier;
@@ -182,7 +181,7 @@ class Field extends \craft\base\Field
             if ($volume->hasUrls) {
                 $volumeOptions[] = [
                     'label' => Html::encode($volume->name),
-                    'value' => $volume->uid
+                    'value' => $volume->id
                 ];
             }
         }
@@ -191,7 +190,7 @@ class Field extends \craft\base\Field
         foreach (Craft::$app->getAssetTransforms()->getAllTransforms() as $transform) {
             $transformOptions[] = [
                 'label' => Html::encode($transform->name),
-                'value' => $transform->uid
+                'value' => $transform->id
             ];
         }
 
@@ -520,7 +519,7 @@ class Field extends \craft\base\Field
                 // Does the section have URLs in the same site as the element we're editing?
                 $sectionSiteSettings = $section->getSiteSettings();
                 if (isset($sectionSiteSettings[$element->siteId]) && $sectionSiteSettings[$element->siteId]->hasUrls) {
-                    $sources[] = 'section:'.$section->uid;
+                    $sources[] = 'section:'.$section->id;
                 }
             }
         }
@@ -549,7 +548,7 @@ class Field extends \craft\base\Field
                 // Does the category group have URLs in the same site as the element we're editing?
                 $categoryGroupSiteSettings = $categoryGroup->getSiteSettings();
                 if (isset($categoryGroupSiteSettings[$element->siteId]) && $categoryGroupSiteSettings[$element->siteId]->hasUrls) {
-                    $sources[] = 'group:'.$categoryGroup->uid;
+                    $sources[] = 'group:'.$categoryGroup->id;
                 }
             }
         }
@@ -571,7 +570,7 @@ class Field extends \craft\base\Field
         $criteria = ['parentId' => ':empty:'];
 
         if ($this->availableVolumes !== '*') {
-            $criteria['volumeId'] = Db::idsByUids('{{%volumes}}', $this->availableVolumes);
+            $criteria['volumeId'] = $this->availableVolumes;
         }
 
         $folders = Craft::$app->getAssets()->findFolders($criteria);
@@ -591,7 +590,7 @@ class Field extends \craft\base\Field
         });
 
         foreach ($folders as $folder) {
-            $volumeKeys[] = 'folder:'.$folder->uid;
+            $volumeKeys[] = 'folder:'.$folder->id;
         }
 
         return $volumeKeys;
@@ -612,7 +611,7 @@ class Field extends \craft\base\Field
         $transformList = [];
 
         foreach ($allTransforms as $transform) {
-            if (!is_array($this->availableTransforms) || in_array($transform->uid, $this->availableTransforms, false)) {
+            if (!is_array($this->availableTransforms) || in_array($transform->id, $this->availableTransforms, false)) {
                 $transformList[] = [
                     'handle' => Html::encode($transform->handle),
                     'name' => Html::encode($transform->name)
@@ -694,7 +693,6 @@ class Field extends \craft\base\Field
         // Default config
         return [
             'Attr.AllowedFrameTargets' => ['_blank'],
-            'Attr.EnableID' => true,
             'HTML.AllowedComments' => ['pagebreak'],
         ];
     }

@@ -179,7 +179,6 @@
         init: function(app, el)
         {
             this.app = app;
-            this.utils = app.utils;
 
             // init
             return (el && el.cmnt !== undefined) ? el : this._init(el);
@@ -202,9 +201,7 @@
         },
         _getType: function()
         {
-            var text = this.text().trim();
-
-            return this.utils.removeInvisibleChars(text);
+            return this.text().trim().replace(/[\u200B-\u200D\uFEFF]/g, '');
         },
         _initWrapper: function()
         {

@@ -38,16 +38,27 @@
 </head>
 <body class="scrollEffectMagic">
 
-{% include 'parts/masks.twig' %}
 
-{% include 'parts/nav.twig' %}
-{% include 'parts/landing.twig' %}
 
-{% include 'parts/info.twig' %}
-{% include 'parts/menu-order.twig' %}
-{% include 'parts/stories.twig' %}
-{% include 'parts/shop.twig' %}
-{% include 'parts/press.twig' %}
+
+{% if craft.request.getUrl() == siteUrl %}
+  {% include 'parts/masks.twig' %}
+  {% include 'parts/nav.twig' %}
+  {% include 'parts/landing.twig' %}
+  {% include 'parts/info.twig' %}
+  {% include 'parts/menu-order.twig' %}
+  {% include 'parts/stories.twig' %}
+  {% include 'parts/shop.twig' %}
+  {% include 'parts/press.twig' %}
+{% else %}
+  {% include 'parts/order.twig' %}
+{% endif %}
+
+
+
+
+
+
 
 
 
@@ -444,6 +455,8 @@ $(window).resize(function(){
 });
 
 </script>
+
+
 
 
 </body>

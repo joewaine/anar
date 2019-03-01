@@ -316,7 +316,7 @@ ul.main-nav li{
     width: 40%;
     margin: 0 auto;
     padding: 110px 0 80px 0;
-    /*height: 90vh;*/
+    height: 100vh;
 }
 
 .pressContainer ul li{
@@ -761,7 +761,7 @@ width: 100%;
 }
 
 .pressContainer li a{
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .pressContainer li a:first-child{

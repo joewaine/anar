@@ -328,7 +328,6 @@
 
 #redactor-image-resizer {
   position: absolute;
-  z-index: 1050;
   background-color: rgba(0, 125, 255, 0.9);
   width: 13px;
   height: 13px;
@@ -1225,7 +1224,7 @@
     font-style: italic;
     text-align: left; }
 
-.upload-redactor-box {
+.upload-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1240,22 +1239,22 @@
   overflow: hidden;
   text-align: center; }
 
-.upload-redactor-placeholder {
+.upload-placeholder {
   font-size: 15px;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.3);
   font-style: italic; }
 
-.upload-redactor-hover {
+.upload-hover {
   background-color: rgba(0, 125, 255, 0.075); }
 
-.upload-redactor-error {
+.upload-error {
   background-color: rgba(255, 50, 101, 0.075); }
 
-.upload-redactor-box-hover {
+.upload-box-hover {
   outline: 5px dashed rgba(0, 125, 255, 0.3); }
 
-.upload-redactor-box-error {
+.upload-box-error {
   outline: 5px dashed rgba(255, 50, 101, 0.3); }
 
 .redactor-structure h1, .redactor-structure h2, .redactor-structure h3, .redactor-structure h4, .redactor-structure h5, .redactor-structure h6, .redactor-structure div {

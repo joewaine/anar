@@ -10,7 +10,6 @@
 namespace Zend\Feed\Writer;
 
 use DateTime;
-use DateTimeInterface;
 use Zend\Feed\Uri;
 
 /**
@@ -179,7 +178,7 @@ class Entry
     /**
      * Set the feed creation date
      *
-     * @param null|int|DateTimeInterface $date
+     * @param null|int|DateTime $date
      * @throws Exception\InvalidArgumentException
      * @return Entry
      */
@@ -187,11 +186,9 @@ class Entry
     {
         if ($date === null) {
             $date = new DateTime();
-        }
-        if (is_int($date)) {
+        } elseif (is_int($date)) {
             $date = new DateTime('@' . $date);
-        }
-        if (! $date instanceof DateTimeInterface) {
+        } elseif (! $date instanceof DateTime) {
             throw new Exception\InvalidArgumentException(
                 'Invalid DateTime object or UNIX Timestamp passed as parameter'
             );
@@ -204,7 +201,7 @@ class Entry
     /**
      * Set the feed modification date
      *
-     * @param null|int|DateTimeInterface $date
+     * @param null|int|DateTime $date
      * @throws Exception\InvalidArgumentException
      * @return Entry
      */
@@ -212,11 +209,9 @@ class Entry
     {
         if ($date === null) {
             $date = new DateTime();
-        }
-        if (is_int($date)) {
+        } elseif (is_int($date)) {
             $date = new DateTime('@' . $date);
-        }
-        if (! $date instanceof DateTimeInterface) {
+        } elseif (! $date instanceof DateTime) {
             throw new Exception\InvalidArgumentException(
                 'Invalid DateTime object or UNIX Timestamp passed as parameter'
             );

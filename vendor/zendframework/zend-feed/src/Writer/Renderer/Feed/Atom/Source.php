@@ -29,7 +29,7 @@ class Source extends AbstractAtom implements Renderer\RendererInterface
     /**
      * Render Atom Feed Metadata (Source element)
      *
-     * @return AbstractAtom
+     * @return Writer\Renderer\Feed\Atom
      */
     public function render()
     {

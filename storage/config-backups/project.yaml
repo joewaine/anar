@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 dateModified: 1547763429
+=======
+dateModified: 1551451214
+>>>>>>> 0ab6e00d4b3b233f3e2ff027a080c964356ba796
 email:
   fromEmail: joe.waine@gmail.com
   fromName: 'ANAR Seattle'
@@ -576,7 +580,11 @@ plugins:
   redactor:
     enabled: '1'
     licenseKey: null
+<<<<<<< HEAD
     schemaVersion: 2.0.0
+=======
+    schemaVersion: 2.2.1
+>>>>>>> 0ab6e00d4b3b233f3e2ff027a080c964356ba796
     settings: null
 sections:
   115d4a52-1324-41cf-9453-1e7e79189260:
@@ -609,6 +617,29 @@ sections:
         template: landing/_entry
         uriFormat: landing
     type: single
+<<<<<<< HEAD
+=======
+  135041f0-5227-4f54-8a1f-a150c0e9bd7d:
+    enableVersioning: true
+    entryTypes:
+      96a20a8f-2b23-4e30-927f-ae00b9725a11:
+        handle: order
+        hasTitleField: false
+        name: order
+        sortOrder: 1
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: order
+    name: order
+    propagateEntries: true
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: true
+        hasUrls: true
+        template: parts/order
+        uriFormat: order
+    type: single
+>>>>>>> 0ab6e00d4b3b233f3e2ff027a080c964356ba796
   28149e35-c476-4ec7-aa53-1964fdbafb78:
     enableVersioning: '1'
     entryTypes:
@@ -930,4 +961,8 @@ volumes:
     sortOrder: '1'
     type: craft\volumes\Local
     url: null
+<<<<<<< HEAD
 dateApplied: '2019-03-01 07:07:46'
+=======
+dateApplied: '2019-03-01 06:43:49'
+>>>>>>> 0ab6e00d4b3b233f3e2ff027a080c964356ba796

@@ -74,12 +74,39 @@
 </a>
 </li>
 {% endfor %}
+
+  <li>
+{% for item in craft.entries.section('mailingList') %}
+
+    <div class="mailing-list-join" style="display: inline-block;">
+    <a href="{{ item.linkUrl }}">
+      {# join mailing list #}
+<img src="/img/mailing-list.svg">
+    </a>
+    </div>
+
+{% endfor %}
+
+{% for socialItem in craft.entries.section('socialLinks') %}
+
+<a class="soc_underline" target="_blank" href="{{ socialItem.linkUrl }}">
+{% for asset in socialItem.socialIcon %}
+    <img src="/img/{{ asset.getPath() }}">
+{% endfor %}
+</a>
+
+{% endfor %}
+
+</li>
+
+
+
 </ul>
 
 
 
 
-<ul class="social mobile">
+<ul class="social mobile" style="display:none;">
 {% for item in craft.entries.section('mailingList') %}
   <li>
     <div class="mailing-list-join">

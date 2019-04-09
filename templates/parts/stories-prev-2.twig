@@ -1,3 +1,7 @@
+
+
+
+
 {% for item in craft.entries.section('stories') %}
 <section id="{{ item.slug }}" class="body-section stories">
   <div class="storiesContainerHeader">stories</div>
@@ -26,7 +30,7 @@
         {% for asset in block.previewImage %}
 
           <div class="back" style="background-image: url(/img/{{ asset.getPath() }})">
-<!-- <h1>preview</h1> -->
+
 
 
            <img  src="/img/stories/masks/story-{{step}}.svg">
@@ -53,7 +57,7 @@
   </div>
 <div class="story-image">
 {% for asset in block.storyImage %}
-    <img class="lazy" src="/img/{{ asset.getPath() }}">
+    <img src="/img/{{ asset.getPath() }}">
 {% endfor %}
 </div>
 
@@ -77,7 +81,7 @@
       <!-- front content -->
       <img class="front-image" src="/img/stories/story-{{step}}.svg">
     </div>
-      {% if block.imageContent %}
+      {% if block.storyImage %}
         {% for asset in block.previewImage %}
           <div class="back" style="background-image: url(/img/{{ asset.getPath() }})">
            <img src="/img/stories/masks/story-{{step}}.svg">
@@ -98,8 +102,8 @@
       {{ block.textContent }}
   </div>
 <div class="story-image">
-{% for asset in block.imageContent %}
-    <img class="lazy" src="/img/{{ asset.getPath() }}">
+{% for asset in block.storyImage %}
+    <img src="/img/{{ asset.getPath() }}">
 {% endfor %}
 </div>
 
@@ -137,7 +141,7 @@
   </div>
 <div class="story-image">
 {% for asset in block.storyImage %}
-    <img class="lazy" src="/img/{{ asset.getPath() }}">
+    <img src="/img/{{ asset.getPath() }}">
 {% endfor %}
 </div>
 

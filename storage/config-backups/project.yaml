@@ -1,1 +1,933 @@
-dateApplied: '2019-01-17 22:17:12'
+dateModified: 1547763429
+email:
+  fromEmail: joe.waine@gmail.com
+  fromName: 'ANAR Seattle'
+  transportType: craft\mail\transportadapters\Sendmail
+fieldGroups:
+  5e2ba9f6-5fbd-49d2-9fa2-6124e9219ca5:
+    name: 'shop link'
+  f43c907f-5583-40b3-9eaa-e88780578b62:
+    name: globals
+fields:
+  20abc8d8-ef22-4c2f-9f46-22a7df19d3e0:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: contactContent
+    instructions: ''
+    name: 'contact content'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3d187288-62e8-4a4c-9adc-937d97be6896:
+    contentColumnType: string
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: socialIcon
+    instructions: ''
+    name: 'social Icon'
+    searchable: '1'
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      singleUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  3dfa706e-720b-4a0e-994f-845e55d54ad9:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: pressTitle
+    instructions: ''
+    name: 'press title'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  57d27234-4fa6-47e7-a332-f81d95c87e6d:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: hours
+    instructions: ''
+    name: 'hours (first line)'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  5d4aaf70-8740-42f5-ba71-34f954fa9406:
+    contentColumnType: string
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: stories
+    instructions: ''
+    name: stories
+    searchable: '1'
+    settings:
+      contentTable: '{{%matrixcontent_stories}}'
+      localizeBlocks: false
+      maxBlocks: '15'
+      minBlocks: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  65935cfc-b36e-456b-893c-c99eb899ff55:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: locationContent
+    instructions: ''
+    name: 'location content'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  7f711821-ce87-4ae1-9c0d-c3eb27203977:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: subTitle
+    instructions: ''
+    name: 'sub title'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a484ffd3-ada5-460e-97e2-b9dca727c6d8:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: menuLinkUrl
+    instructions: ''
+    name: 'menu order link url'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b35381b4-048a-4e1d-aacd-ea1dd1764fae:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: locationMapEmbed
+    instructions: ''
+    name: 'location map embed'
+    searchable: '1'
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: ''
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: ''
+      redactorConfig: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  be8382aa-3ea1-4227-a53f-325bca70ab86:
+    contentColumnType: string
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: storyImage
+    instructions: ''
+    name: 'story image'
+    searchable: '1'
+    settings:
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: ''
+      selectionLabel: ''
+      singleUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: ''
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  ce12d5c7-a769-4b3a-9e2e-354a87360871:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: contact
+    instructions: ''
+    name: 'contact (first line)'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d25b5de5-66c4-427f-832f-9c42fa61dfea:
+    contentColumnType: string
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: backgroundImage
+    instructions: ''
+    name: 'background image'
+    searchable: '1'
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      singleUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  d9bb918f-2426-42b7-8650-4237103faafe:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: hoursContent
+    instructions: ''
+    name: 'hours content'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  dd6a4c76-c61e-46cd-b0a6-98673a5f8a65:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: linkUrl
+    instructions: ''
+    name: 'link url'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  dd7658c4-d6af-434c-a165-9715c589a5c3:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: storyTitle
+    instructions: ''
+    name: 'story title'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e8bcde3e-b5b6-4485-83d2-ebbe38956ec3:
+    contentColumnType: text
+    fieldGroup: 5e2ba9f6-5fbd-49d2-9fa2-6124e9219ca5
+    handle: shopLinkUrl
+    instructions: ''
+    name: 'shop link url'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  fd2b597c-3c39-4fb2-a4c6-4e3d31145e60:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: location
+    instructions: ''
+    name: 'location (first line)'
+    searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+globalSets:
+  3365fa75-131f-484f-b879-edc7dda764b1:
+    handle: globalItems
+    name: 'global items'
+imageTransforms:
+  7ffcb4e9-0e0a-4e85-a335-516e3b99b1b4:
+    format: null
+    handle: squareStoryImage
+    height: '360'
+    interlace: none
+    mode: crop
+    name: square-story-image
+    position: center-center
+    quality: null
+    width: '360'
+matrixBlockTypes:
+  9fdee53d-4ff8-4bc3-8cce-7f5e520e4244:
+    field: 5d4aaf70-8740-42f5-ba71-34f954fa9406
+    fieldLayouts:
+      2703a062-07de-4e36-aa39-57a121078d48:
+        tabs:
+          -
+            fields:
+              8ca6a439-476d-4b20-9124-5f7d10dec54f:
+                required: '0'
+                sortOrder: '4'
+              9665d01f-582f-477f-82ce-92855172dd58:
+                required: '0'
+                sortOrder: '1'
+              c9476374-bbdc-4215-81e4-e9c4aacd25d4:
+                required: '0'
+                sortOrder: '2'
+              f5f9ee7e-dabc-4d42-9535-09b0fd043df8:
+                required: '0'
+                sortOrder: '3'
+            name: Content
+            sortOrder: '1'
+    fields:
+      8ca6a439-476d-4b20-9124-5f7d10dec54f:
+        contentColumnType: string
+        fieldGroup: null
+        handle: storyImage
+        instructions: ''
+        name: 'story image'
+        searchable: '1'
+        settings:
+          allowedKinds: null
+          defaultUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+          defaultUploadLocationSubpath: ''
+          limit: ''
+          localizeRelations: false
+          restrictFiles: ''
+          selectionLabel: ''
+          singleUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+          singleUploadLocationSubpath: ''
+          source: null
+          sources: '*'
+          targetSiteId: null
+          useSingleFolder: ''
+          viewMode: list
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Assets
+      9665d01f-582f-477f-82ce-92855172dd58:
+        contentColumnType: text
+        fieldGroup: null
+        handle: storyTitle
+        instructions: ''
+        name: 'story title'
+        searchable: '1'
+        settings:
+          charLimit: ''
+          code: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      c9476374-bbdc-4215-81e4-e9c4aacd25d4:
+        contentColumnType: text
+        fieldGroup: null
+        handle: textContent
+        instructions: ''
+        name: 'text content'
+        searchable: '1'
+        settings:
+          availableTransforms: '*'
+          availableVolumes: '*'
+          cleanupHtml: '1'
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: '1'
+          redactorConfig: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
+      f5f9ee7e-dabc-4d42-9535-09b0fd043df8:
+        contentColumnType: string
+        fieldGroup: null
+        handle: previewImage
+        instructions: ''
+        name: 'Preview Image'
+        searchable: '1'
+        settings:
+          allowedKinds: null
+          defaultUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+          defaultUploadLocationSubpath: ''
+          limit: ''
+          localizeRelations: false
+          restrictFiles: ''
+          selectionLabel: ''
+          singleUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+          singleUploadLocationSubpath: ''
+          source: null
+          sources: '*'
+          targetSiteId: null
+          useSingleFolder: ''
+          viewMode: list
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Assets
+    handle: text
+    name: text
+    sortOrder: '1'
+  d682ae3e-2c3e-4681-b8af-d1c806c3a168:
+    field: 5d4aaf70-8740-42f5-ba71-34f954fa9406
+    fieldLayouts:
+      06745dcb-5240-483c-8ba8-7df8128d5d02:
+        tabs:
+          -
+            fields:
+              afb4aaa4-f24c-4f2e-bfcd-7616bfe7c07d:
+                required: '0'
+                sortOrder: '2'
+              ba83d1e3-81ef-41a8-abd1-0e00cebf9cc7:
+                required: '0'
+                sortOrder: '1'
+            name: Content
+            sortOrder: '1'
+    fields:
+      afb4aaa4-f24c-4f2e-bfcd-7616bfe7c07d:
+        contentColumnType: string
+        fieldGroup: null
+        handle: previewImage
+        instructions: ''
+        name: 'Preview Image'
+        searchable: '1'
+        settings:
+          allowedKinds: null
+          defaultUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+          defaultUploadLocationSubpath: ''
+          limit: ''
+          localizeRelations: false
+          restrictFiles: ''
+          selectionLabel: ''
+          singleUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+          singleUploadLocationSubpath: ''
+          source: null
+          sources: '*'
+          targetSiteId: null
+          useSingleFolder: ''
+          viewMode: list
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Assets
+      ba83d1e3-81ef-41a8-abd1-0e00cebf9cc7:
+        contentColumnType: string
+        fieldGroup: null
+        handle: imageContent
+        instructions: ''
+        name: 'image content'
+        searchable: '1'
+        settings:
+          allowedKinds: null
+          defaultUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+          defaultUploadLocationSubpath: ''
+          limit: ''
+          localizeRelations: false
+          restrictFiles: ''
+          selectionLabel: ''
+          singleUploadLocationSource: 'volume:141005fa-f298-4340-8c7a-0c8cda2f45b3'
+          singleUploadLocationSubpath: ''
+          source: null
+          sources: '*'
+          targetSiteId: null
+          useSingleFolder: ''
+          viewMode: list
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Assets
+    handle: image
+    name: image
+    sortOrder: '2'
+  eaf4d9e7-df4e-42e9-9902-2279ba48d820:
+    field: 5d4aaf70-8740-42f5-ba71-34f954fa9406
+    fieldLayouts:
+      dc8a3cf9-5b07-48dd-b6b6-08aad7d68ddf:
+        tabs:
+          -
+            fields:
+              2edc02d8-01c5-4243-81be-5a87c013be6b:
+                required: '0'
+                sortOrder: '1'
+              9f33e1fa-7f74-4054-b318-60a3ea480623:
+                required: '0'
+                sortOrder: '2'
+            name: Content
+            sortOrder: '1'
+    fields:
+      2edc02d8-01c5-4243-81be-5a87c013be6b:
+        contentColumnType: text
+        fieldGroup: null
+        handle: videoContent
+        instructions: ''
+        name: 'video content'
+        searchable: '1'
+        settings:
+          availableTransforms: '*'
+          availableVolumes: '*'
+          cleanupHtml: ''
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: ''
+          redactorConfig: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
+      9f33e1fa-7f74-4054-b318-60a3ea480623:
+        contentColumnType: text
+        fieldGroup: null
+        handle: previewImage
+        instructions: ''
+        name: 'Preview Image'
+        searchable: '1'
+        settings:
+          charLimit: ''
+          code: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+    handle: video
+    name: video
+    sortOrder: '3'
+plugins:
+  redactor:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 2.0.0
+    settings: null
+sections:
+  115d4a52-1324-41cf-9453-1e7e79189260:
+    enableVersioning: '1'
+    entryTypes:
+      473faf15-130b-4f06-af52-1da97ac1ac90:
+        fieldLayouts:
+          84499b91-5409-425a-b404-cc084a3f114d:
+            tabs:
+              -
+                fields:
+                  d25b5de5-66c4-427f-832f-9c42fa61dfea:
+                    required: '0'
+                    sortOrder: '1'
+                name: 'Tab 1'
+                sortOrder: '1'
+        handle: landing
+        hasTitleField: '0'
+        name: landing
+        sortOrder: '1'
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: landing
+    name: landing
+    propagateEntries: '1'
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: '1'
+        hasUrls: '1'
+        template: landing/_entry
+        uriFormat: landing
+    type: single
+  28149e35-c476-4ec7-aa53-1964fdbafb78:
+    enableVersioning: '1'
+    entryTypes:
+      a9377acd-5737-4d70-b01c-0394d0fec7db:
+        fieldLayouts:
+          38ea74ad-dff0-43e1-a19f-be551e385bd3:
+            tabs:
+              -
+                fields:
+                  3d187288-62e8-4a4c-9adc-937d97be6896:
+                    required: '0'
+                    sortOrder: '3'
+                  dd6a4c76-c61e-46cd-b0a6-98673a5f8a65:
+                    required: '0'
+                    sortOrder: '1'
+                name: 'Tab 1'
+                sortOrder: '1'
+        handle: socialLinks
+        hasTitleField: '1'
+        name: 'Social links'
+        sortOrder: '1'
+        titleFormat: null
+        titleLabel: Title
+    handle: socialLinks
+    name: 'Social links'
+    propagateEntries: '1'
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: '1'
+        hasUrls: '1'
+        template: social-links/_entry
+        uriFormat: 'social-links/{slug}'
+    structure:
+      maxLevels: null
+      uid: 76a0d7fc-f678-4ac2-a657-f781ff6c61e3
+    type: structure
+  60bc6f6e-43b3-4fbd-b3d9-bd3a8c36f330:
+    enableVersioning: '1'
+    entryTypes:
+      22d86a7b-6a35-45f5-bef5-936644b668d8:
+        handle: logo
+        hasTitleField: '0'
+        name: logo
+        sortOrder: '1'
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: logo
+    name: logo
+    propagateEntries: '1'
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: '0'
+        hasUrls: '1'
+        template: logo/_entry
+        uriFormat: logo
+    structure:
+      maxLevels: null
+      uid: 1530286a-2b02-4859-9cae-e4386864487f
+    type: structure
+  66dea314-1f7f-456d-9f93-d02d7bcd65fa:
+    enableVersioning: '1'
+    entryTypes:
+      a59bbff9-d9a9-4cab-8f6f-191c2f405992:
+        fieldLayouts:
+          c50cb0f4-e726-436c-bac6-aa8e82639785:
+            tabs:
+              -
+                fields:
+                  dd6a4c76-c61e-46cd-b0a6-98673a5f8a65:
+                    required: '0'
+                    sortOrder: '1'
+                name: 'Tab 1'
+                sortOrder: '1'
+        handle: mailingList
+        hasTitleField: '0'
+        name: 'mailing list'
+        sortOrder: '1'
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: mailingList
+    name: 'mailing list'
+    propagateEntries: '1'
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: '1'
+        hasUrls: '1'
+        template: mailing-list/_entry
+        uriFormat: mailing-list
+    type: single
+  81f5fb0a-a624-40ff-bff5-ed8a92fea537:
+    enableVersioning: '1'
+    entryTypes:
+      6144f180-e302-40bb-b9ce-173e3da7f3cb:
+        fieldLayouts:
+          841557c5-4c53-4f29-b7b9-7986e869c7cc:
+            tabs:
+              -
+                fields:
+                  20abc8d8-ef22-4c2f-9f46-22a7df19d3e0:
+                    required: '0'
+                    sortOrder: '2'
+                  57d27234-4fa6-47e7-a332-f81d95c87e6d:
+                    required: '0'
+                    sortOrder: '6'
+                  65935cfc-b36e-456b-893c-c99eb899ff55:
+                    required: '0'
+                    sortOrder: '4'
+                  b35381b4-048a-4e1d-aacd-ea1dd1764fae:
+                    required: '0'
+                    sortOrder: '5'
+                  ce12d5c7-a769-4b3a-9e2e-354a87360871:
+                    required: '0'
+                    sortOrder: '1'
+                  d9bb918f-2426-42b7-8650-4237103faafe:
+                    required: '0'
+                    sortOrder: '7'
+                  fd2b597c-3c39-4fb2-a4c6-4e3d31145e60:
+                    required: '0'
+                    sortOrder: '3'
+                name: 'Tab 1'
+                sortOrder: '1'
+        handle: info
+        hasTitleField: '0'
+        name: info
+        sortOrder: '1'
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: info
+    name: info
+    propagateEntries: '1'
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: '1'
+        hasUrls: '1'
+        template: info/_entry
+        uriFormat: info
+    type: single
+  95f17303-a7f0-4f46-8a6a-6a4d9dbecca3:
+    enableVersioning: '1'
+    entryTypes:
+      1c037d5f-6053-42aa-9c7e-07cc42dcb974:
+        fieldLayouts:
+          6f5bbb9c-b243-49b1-9043-3bee6a38c2a4:
+            tabs:
+              -
+                fields:
+                  7f711821-ce87-4ae1-9c0d-c3eb27203977:
+                    required: '0'
+                    sortOrder: '1'
+                  dd6a4c76-c61e-46cd-b0a6-98673a5f8a65:
+                    required: '0'
+                    sortOrder: '2'
+                name: 'Tab 1'
+                sortOrder: '1'
+        handle: press
+        hasTitleField: '1'
+        name: press
+        sortOrder: '1'
+        titleFormat: null
+        titleLabel: Title
+    handle: press
+    name: press
+    propagateEntries: '1'
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: '0'
+        hasUrls: '1'
+        template: press/_entry
+        uriFormat: 'press/{slug}'
+    structure:
+      maxLevels: null
+      uid: aa2894c3-171c-4adc-8b61-902921b73d56
+    type: structure
+  a676ade5-a2c9-4787-9414-6ea1ff559d8d:
+    enableVersioning: '1'
+    entryTypes:
+      e234a6ae-3553-4805-abda-e82d84813c41:
+        handle: navigationLinks
+        hasTitleField: '1'
+        name: 'Navigation Links'
+        sortOrder: '1'
+        titleFormat: null
+        titleLabel: Title
+    handle: navigationLinks
+    name: 'Navigation Links'
+    propagateEntries: '1'
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: '1'
+        hasUrls: '1'
+        template: navigation-links/_entry
+        uriFormat: 'navigation-links/{slug}'
+    structure:
+      maxLevels: null
+      uid: 86af8071-d7fd-4278-854c-88067327bc85
+    type: structure
+  b2c50ad6-e84a-4577-98c3-f57f5d024f71:
+    enableVersioning: '1'
+    entryTypes:
+      3e23a9d6-c359-465a-bf22-219c129bd85e:
+        fieldLayouts:
+          92e76f9c-3b01-4c7f-bc68-d48cd190abbd:
+            tabs:
+              -
+                fields:
+                  5d4aaf70-8740-42f5-ba71-34f954fa9406:
+                    required: '0'
+                    sortOrder: '1'
+                name: 'Tab 1'
+                sortOrder: '1'
+        handle: stories
+        hasTitleField: '0'
+        name: stories
+        sortOrder: '1'
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: stories
+    name: stories
+    propagateEntries: '1'
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: '1'
+        hasUrls: '1'
+        template: stories/_entry
+        uriFormat: stories
+    type: single
+  c10e9f75-a470-4bfa-8686-71df07573543:
+    enableVersioning: '1'
+    entryTypes:
+      52ad32bd-4b2a-4037-bebd-a789dafb18a6:
+        fieldLayouts:
+          77dff727-212f-42e5-982d-7833956b266d:
+            tabs:
+              -
+                fields:
+                  a484ffd3-ada5-460e-97e2-b9dca727c6d8:
+                    required: '0'
+                    sortOrder: '1'
+                name: 'Tab 1'
+                sortOrder: '1'
+        handle: menuOrder
+        hasTitleField: '0'
+        name: 'menu / order'
+        sortOrder: '1'
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: menuOrder
+    name: 'menu / order'
+    propagateEntries: '1'
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: '1'
+        hasUrls: '1'
+        template: menu-order/_entry
+        uriFormat: menu-order
+    type: single
+  e53429de-6a53-4ef1-af78-47239cf668e2:
+    enableVersioning: '1'
+    entryTypes:
+      b3295a9e-ce82-4983-bd0e-24fda9d6ab17:
+        fieldLayouts:
+          d094e44d-9ac2-40e4-8d9d-4a0c0222a01e:
+            tabs:
+              -
+                fields:
+                  e8bcde3e-b5b6-4485-83d2-ebbe38956ec3:
+                    required: '0'
+                    sortOrder: '1'
+                name: 'shop link'
+                sortOrder: '1'
+        handle: shop
+        hasTitleField: '0'
+        name: shop
+        sortOrder: '1'
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: shop
+    name: shop
+    propagateEntries: '1'
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: '1'
+        hasUrls: '1'
+        template: shop/_entry
+        uriFormat: shop
+    type: single
+siteGroups:
+  149f529b-73b4-4c60-9956-aaa0a6032473:
+    name: 'ANAR Seattle'
+sites:
+  a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+    baseUrl: '@web/'
+    handle: default
+    hasUrls: '1'
+    language: en-US
+    name: 'ANAR Seattle'
+    primary: '1'
+    siteGroup: 149f529b-73b4-4c60-9956-aaa0a6032473
+    sortOrder: '1'
+system:
+  edition: solo
+  live: true
+  name: 'ANAR Seattle'
+  schemaVersion: 3.1.20
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: ''
+  photoVolumeUid: null
+  requireEmailVerification: true
+volumes:
+  141005fa-f298-4340-8c7a-0c8cda2f45b3:
+    handle: img
+    hasUrls: '0'
+    name: img
+    settings:
+      path: '@webroot/img/'
+    sortOrder: '1'
+    type: craft\volumes\Local
+    url: null
+dateApplied: '2019-03-01 07:07:46'

@@ -7,6 +7,7 @@
 
 namespace Zend\Feed\Writer\Extension\GooglePlayPodcast;
 
+use Zend\Feed\Uri;
 use Zend\Feed\Writer;
 use Zend\Stdlib\StringUtils;
 use Zend\Stdlib\StringWrapper\StringWrapperInterface;
@@ -66,6 +67,7 @@ class Entry
      * Set a block value of "yes" or "no". You may also set an empty string.
      *
      * @param  string
+     * @return Entry
      * @throws Writer\Exception\InvalidArgumentException
      */
     public function setPlayPodcastBlock($value)

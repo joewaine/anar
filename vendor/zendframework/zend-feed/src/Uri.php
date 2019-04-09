@@ -145,7 +145,7 @@ class Uri
         }
 
         if ($this->host) {
-            if ($this->path && 0 !== strpos($this->path, '/')) {
+            if ($this->path && substr($this->path, 0, 1) != '/') {
                 return false;
             }
             return true;
@@ -158,7 +158,7 @@ class Uri
 
         if ($this->path) {
             // Check path-only (no host) URI
-            if (0 === strpos($this->path, '//')) {
+            if (substr($this->path, 0, 2) == '//') {
                 return false;
             }
             return true;

@@ -10,7 +10,6 @@
 namespace Zend\Feed\Writer;
 
 use DateTime;
-use DateTimeInterface;
 use Zend\Feed\Uri;
 
 /**
@@ -133,7 +132,7 @@ class Deleted
     /**
      * Set when
      *
-     * @param null|int|DateTimeInterface $date
+     * @param null|string|DateTime $date
      * @throws Exception\InvalidArgumentException
      * @return Deleted
      */
@@ -141,11 +140,9 @@ class Deleted
     {
         if ($date === null) {
             $date = new DateTime();
-        }
-        if (is_int($date)) {
+        } elseif (is_int($date)) {
             $date = new DateTime('@' . $date);
-        }
-        if (! $date instanceof DateTimeInterface) {
+        } elseif (! $date instanceof DateTime) {
             throw new Exception\InvalidArgumentException('Invalid DateTime object or UNIX Timestamp'
             . ' passed as parameter');
         }

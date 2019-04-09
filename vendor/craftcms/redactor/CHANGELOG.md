@@ -1,5 +1,27 @@
 # Release Notes for Redactor for Craft CMS
 
+## 2.2.1 - 2019-01-17
+
+### Fixed
+- Fixed an error that occurred when updating to 2.2.0 if there were Redactor fields without the `availableTransforms` or `availableVolumes` set. ([#112](https://github.com/craftcms/redactor/issues/112))
+
+## 2.2.0 - 2019-01-16
+
+### Changed
+- Redactor for Craft CMS now requires Craft 3.1.
+- Improved Project Config compatibility.
+
+## 2.1.7 - 2018-12-17
+
+### Changed
+- Updated Redactor to 3.1.4
+- Fullscreen plugin is now not available for use during Live Preview. ([#94](https://github.com/craftcms/redactor/issues/94))
+- Redactor fields’ default HTML Purifier config now allows `id` attributes. ([#82](https://github.com/craftcms/redactor/issues/82)) 
+
+### Fixed
+- Fixed a bug where image editor would be unavailable for inserted assets. ([#95](https://github.com/craftcms/redactor/issues/95))
+- Fixed a bug where Redactor was not getting translated properly for Norwegian languages. ([#99](https://github.com/craftcms/redactor/issues/99))
+
 ## 2.1.6 - 2018-08-21
 
 ### Changed

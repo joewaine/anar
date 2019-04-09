@@ -280,7 +280,7 @@ class Reader implements ReaderImportInterface
      *
      * @param  string $uri
      * @param  Http\ClientInterface $client
-     * @return Feed\FeedInterface
+     * @return self
      * @throws Exception\RuntimeException if response is not an Http\ResponseInterface
      */
     public static function importRemoteFeed($uri, Http\ClientInterface $client)
@@ -349,11 +349,11 @@ class Reader implements ReaderImportInterface
 
         static::registerCoreExtensions();
 
-        if (0 === strpos($type, 'rss')) {
+        if (substr($type, 0, 3) == 'rss') {
             $reader = new Feed\Rss($dom, $type);
-        } elseif (8 === strpos($type, 'entry')) {
+        } elseif (substr($type, 8, 5) == 'entry') {
             $reader = new Entry\Atom($dom->documentElement, 0, self::TYPE_ATOM_10);
-        } elseif (0 === strpos($type, 'atom')) {
+        } elseif (substr($type, 0, 4) == 'atom') {
             $reader = new Feed\Atom($dom, $type);
         } else {
             throw new Exception\RuntimeException('The URI used does not point to a '

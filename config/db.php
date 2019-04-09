@@ -17,4 +17,5 @@ return [
     'schema' => getenv('DB_SCHEMA'),
     'tablePrefix' => getenv('DB_TABLE_PREFIX'),
     'port' => getenv('DB_PORT')
+
 ];

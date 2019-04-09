@@ -10,7 +10,6 @@
 namespace Zend\Feed\Writer;
 
 use DateTime;
-use DateTimeInterface;
 use Zend\Feed\Uri;
 use Zend\Validator;
 
@@ -129,7 +128,7 @@ class AbstractFeed
     /**
      * Set the feed creation date
      *
-     * @param null|int|DateTimeInterface
+     * @param null|int|DateTime
      * @throws Exception\InvalidArgumentException
      * @return AbstractFeed
      */
@@ -137,11 +136,9 @@ class AbstractFeed
     {
         if ($date === null) {
             $date = new DateTime();
-        }
-        if (is_int($date)) {
+        } elseif (is_int($date)) {
             $date = new DateTime('@' . $date);
-        }
-        if (! $date instanceof DateTimeInterface) {
+        } elseif (! $date instanceof DateTime) {
             throw new Exception\InvalidArgumentException('Invalid DateTime object or UNIX Timestamp'
                                                          . ' passed as parameter');
         }
@@ -153,7 +150,7 @@ class AbstractFeed
     /**
      * Set the feed modification date
      *
-     * @param null|int|DateTimeInterface
+     * @param null|int|DateTime
      * @throws Exception\InvalidArgumentException
      * @return AbstractFeed
      */
@@ -161,11 +158,9 @@ class AbstractFeed
     {
         if ($date === null) {
             $date = new DateTime();
-        }
-        if (is_int($date)) {
+        } elseif (is_int($date)) {
             $date = new DateTime('@' . $date);
-        }
-        if (! $date instanceof DateTimeInterface) {
+        } elseif (! $date instanceof DateTime) {
             throw new Exception\InvalidArgumentException('Invalid DateTime object or UNIX Timestamp'
                                                          . ' passed as parameter');
         }
@@ -177,7 +172,7 @@ class AbstractFeed
     /**
      * Set the feed last-build date. Ignored for Atom 1.0.
      *
-     * @param null|int|DateTimeInterface
+     * @param null|int|DateTime
      * @throws Exception\InvalidArgumentException
      * @return AbstractFeed
      */
@@ -185,11 +180,9 @@ class AbstractFeed
     {
         if ($date === null) {
             $date = new DateTime();
-        }
-        if (is_int($date)) {
+        } elseif (is_int($date)) {
             $date = new DateTime('@' . $date);
-        }
-        if (! $date instanceof DateTimeInterface) {
+        } elseif (! $date instanceof DateTime) {
             throw new Exception\InvalidArgumentException('Invalid DateTime object or UNIX Timestamp'
                                                          . ' passed as parameter');
         }
@@ -571,7 +564,7 @@ class AbstractFeed
     /**
      * Get an array with feed authors
      *
-     * @return array|null
+     * @return array
      */
     public function getAuthors()
     {

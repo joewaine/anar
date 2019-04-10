@@ -45,22 +45,6 @@
   {% include 'parts/masks.twig' %}
   {% include 'parts/nav.twig' %}
   {% include 'parts/landing.twig' %}
-
-
-
-<!-- <div style="width:100%;height:200px;background:red;">
-
-
-    buttons -->
-    <!-- <button type="button" class="start">start using lazy</button> -->
-
-
-
-
-  <!-- <img class="lazy" data-src="/img/logo.svg" /> -->
-
-<!-- </div> -->
-
   {% include 'parts/info.twig' %}
   {% include 'parts/menu-order.twig' %}
   {% include 'parts/stories.twig' %}
@@ -160,24 +144,12 @@ $('.third-box').click(function(){
 
 <script type="text/javascript">
 
-
-
 $('body').scroll(function() {
   $('#press, .pressContainerHeader').css('background-position', $(this).scrollTop() + 'px');
   $('.storiesContainerHeader').css('background-position', -1 * $(this).scrollTop() + 'px');
 });
 
-
-
-
-
-
-
 </script>
-
-
-
-
 
 <script>
 $('.story-container').click(function(){
@@ -501,18 +473,7 @@ $(window).resize(function(){
 
 <script>
 
-  // $(function() {
-  //       $('.trigger-story').click(function() {
-  //           $('img.lazy').lazy({
-  //               bind: "event"
-  //           });
-  //       });
 
-  //   });
-
-  // $('.story-container').click(function(){
-  //   alert($(this).attr('data'))
-  // });
 
  $(function() {
         $('.lazy').lazy();
@@ -521,6 +482,28 @@ $(window).resize(function(){
 </script>
 
 
+
+<script>
+
+
+$('body').on('scroll', function() {
+
+    $('.section').each(function(){
+
+      if($(this).scrollTop() >= $(this).offset().top){
+
+        $('.main-nav li a').css('color','#fff');
+        $('a[data="' + $(this).attr('id') + '"]').css('color','#565656');
+
+      }
+
+    });
+
+
+});
+
+
+</script>
 
 
 </body>

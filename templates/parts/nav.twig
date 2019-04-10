@@ -5,10 +5,10 @@
 
 
 
-<ul class="main-nav">
+<ul class="main-nav" id="desktopNav">
 {% for item in craft.entries.section('navigationLinks') %}
 <li>
-<a class="nav-link futura-bold" href="#{{ item.slug }}">
+<a data="{{ item.slug }}" class="nav-link futura-bold nav-item" href="#{{ item.slug }}">
 {{ item.title }}
 </a>
 </li>

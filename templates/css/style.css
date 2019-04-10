@@ -3378,3 +3378,17 @@ display: block;
 }
 
 
+
+    .active a{
+    color: rgb(89, 89, 89);
+
+
+    }
+
+
+.main-nav li a{
+
+    -webkit-transition: all .25s ease;
+    transition: all .25s ease;
+}
+

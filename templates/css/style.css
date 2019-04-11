@@ -24,7 +24,28 @@ ul/*font declarations*/
             font-size: 16px;
             -webkit-text-size-adjust: 100%;
             height: 100%;
+            font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+
         }
+
+
+
+
+
+
+
+a,
+a:link,
+a​:active,
+a​:visited,
+a​:hover{
+    color: white;
+}
+
+
+
+
+
 
         body {
             margin: 0;
@@ -234,7 +255,7 @@ nav{
 
 
 .navwave{
-    background-image: url(../img/header.svg);
+    /*background-image: url(../img/header.svg);*/
     background-size: 104%;
     background-position: bottom center;
     margin-top: 8px;
@@ -244,6 +265,10 @@ nav{
     position: absolute;
     width: 100%;
     /* top: 22px; */
+
+
+    padding-top: 12px;
+
 }
 
 li a img{
@@ -514,7 +539,7 @@ li .mailing-list-join a img {
 
 
 #info-page{
-  background: url('../drinks.jpg') no-repeat center center fixed;
+  background: url('../drinks.jpg') no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1715,7 +1740,7 @@ position: fixed;
 
 
 .navwave.desktop{
-    background-image: url(../img/header.svg);
+    /*background-image: url(../img/header.svg);*/
     background-size: 104%;
     background-position: bottom center;
     background-repeat: no-repeat;
@@ -2142,6 +2167,24 @@ svg path{
     animation-timing-function: linear;
 }
 
+
+
+
+
+/* Safari 10.1+ */
+
+@media not all and (min-resolution:.001dpcm) { @media {
+
+#star_limb_dest{
+    fill: #90d5ac !important;
+}
+
+
+#berry_limb_dest{
+fill: rgb(187, 155, 197) !important;
+}
+
+}}
 
 
 @media (max-width: 1080px){
@@ -3392,3 +3435,15 @@ display: block;
     transition: all .25s ease;
 }
 
+
+.cls-1.wave{
+fill:#e26b69 !important;
+}
+
+
+@media (max-width: 1400px){
+.navwave{
+    padding-top: 30px;
+
+}
+}

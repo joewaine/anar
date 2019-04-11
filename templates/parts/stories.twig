@@ -53,7 +53,7 @@
   </div>
 <div class="story-image">
 {% for asset in block.storyImage %}
-    <img class="lazy" src="/img/{{ asset.getPath() }}">
+    <img class="lazy" data="/img/{{ asset.getPath() }}">
 {% endfor %}
 </div>
 
@@ -99,7 +99,7 @@
   </div>
 <div class="story-image">
 {% for asset in block.imageContent %}
-    <img class="lazy" src="/img/{{ asset.getPath() }}">
+    <img class="lazy" data="/img/{{ asset.getPath() }}">
 {% endfor %}
 </div>
 
@@ -137,7 +137,7 @@
   </div>
 <div class="story-image">
 {% for asset in block.storyImage %}
-    <img class="lazy" src="/img/{{ asset.getPath() }}">
+    <img class="lazy" data="/img/{{ asset.getPath() }}">
 {% endfor %}
 </div>
 

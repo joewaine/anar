@@ -159,7 +159,7 @@ $('.story-container').click(function(){
 
 if($(this).data('type') === "text"){
 
-$('body').prepend('<div class="story-modal" data-type="text"><div class="container"><div class="text-title">'+ $(this).find('div.story-title')[0].innerHTML +'</div><div class="image-region"><img src="' + $(this).find('.story-image').find('img').attr('src') + '"></div><div class="text-content">'+ $(this).find('div.story-text')[0].innerHTML +'<div class="close">x</div></div></div></div>');
+$('body').prepend('<div class="story-modal" data-type="text"><div class="container"><div class="text-title">'+ $(this).find('div.story-title')[0].innerHTML +'</div><div class="image-region"><img src="' + $(this).find('.story-image').find('img').attr('data') + '"></div><div class="text-content">'+ $(this).find('div.story-text')[0].innerHTML +'<div class="close">x</div></div></div></div>');
 
 }else if(($(this).data('type') === "video")){
 
@@ -169,7 +169,7 @@ $('body').prepend('<div class="story-modal" data-type="video"><div class="videoC
 
 
 
-  $('body').prepend('<div class="story-modal" data-type="image" style="background: url('+ $(this).find('.story-image').find('img').attr('src') +') no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">'+ $(this).data('type') +'<div class="close">x</div></div>');
+  $('body').prepend('<div class="story-modal lazy" data-type="image" style="background-color: #000;background-image: url('+ $(this).find('.story-image').find('img').attr('data') +'); background-repeat: no-repeat; background-position: center center; background-attachment:fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">'+ $(this).data('type') +'<div class="close">x</div></div>');
 
 console.log($(this).find('.back').attr('style'));
 

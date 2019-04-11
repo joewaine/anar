@@ -8,9 +8,9 @@
 
 {% for item in craft.entries.section('press') %}
 <li>
-  <a class="futura-italic" href="{{ item.linkUrl }}">{{ item.title }}</a>
+  <a target="_blank" class="futura-italic" href="{{ item.linkUrl }}">{{ item.title }}</a>
   <br>
-  <a class="futura" href="{{ item.linkUrl }}">{{ item.subTitle }}</a>
+  <a target="_blank" class="futura" href="{{ item.linkUrl }}">{{ item.subTitle }}</a>
 </li>
 {% endfor %}
 

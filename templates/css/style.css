@@ -1612,6 +1612,7 @@ html, body {
         background: transparent;
             min-height: auto;
             height: 100vh;
+                margin-top: -70px;
 }
 
 @media (max-width: 768px){
@@ -3396,9 +3397,9 @@ display: block;
 
 
 
-#landing{
+/*#landing{
     margin-top: -100px;
-}
+}*/
 
 
 }
@@ -3447,3 +3448,61 @@ fill:#e26b69 !important;
 
 }
 }
+
+
+
+@media (max-width: 992px){
+
+    #landing{
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px){
+     #stories{
+            height: 144vh;
+     }
+
+
+#menu-order{
+        padding-top: 60px;
+    padding-bottom: 0;
+    min-height: 120vh;
+    min-height: 100vh;
+}
+
+}
+
+
+@media (max-width: 480px){
+#landing{
+    margin-top: -100px;
+}
+}
+
+
+#shop-svg{
+margin-top: -40px;
+}
+
+@media (max-width: 768px){
+#shop-svg{
+margin-top: 0;
+}
+}
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+#animatedSvg{
+    display: none;
+}
+
+#animatedSvg2{
+    display: block !important;
+}
+
+
+}
+
+

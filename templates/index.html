@@ -490,7 +490,7 @@ $('body').on('scroll', function() {
 
     $('.section').each(function(){
 
-      if($(this).scrollTop() >= $(this).offset().top){
+      if($(this).scrollTop() >= $(this).offset().top - 20){
 
         $('.main-nav li a').css('color','#fff');
         $('a[data="' + $(this).attr('id') + '"]').css('color','#565656');

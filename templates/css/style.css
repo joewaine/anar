@@ -3670,3 +3670,21 @@ padding-top: 0;
 
 }
 
+
+@media (max-width: 480px){
+    .story-container{
+        height: 24vh;
+
+
+}
+
+
+#stories{
+    height: 164vh;
+}
+}
+
+
+
+
+

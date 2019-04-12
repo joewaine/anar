@@ -62,8 +62,8 @@
 
 
 {% for announcement in craft.entries.section('Announcements') %}
-
-{% if announcement %}
+<!-- this changes -->
+{% if announcement.announcementText %}
 
 <div class="announcements">
 

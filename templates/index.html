@@ -57,6 +57,30 @@
   {% include 'parts/stories.twig' %}
   {% include 'parts/shop.twig' %}
   {% include 'parts/press.twig' %}
+
+
+
+
+{% for announcement in craft.entries.section('Announcements') %}
+<div class="announcements">
+
+<!-- <button class="close-announcement">X</button> -->
+<div class="announcementContainer">
+
+<div class="announcementText">
+
+
+{{ announcement.announcementText }}
+
+</div>
+
+</div>
+<div class="close">x</div>
+</div>
+
+{% endfor %}
+
+
 {% else %}
   {% include 'parts/order.twig' %}
 {% endif %}

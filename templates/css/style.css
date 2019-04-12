@@ -629,7 +629,7 @@ li .mailing-list-join a img {
     border-radius: 10px;
     width: 90%;
     margin: 0 auto;
-    height: 420px;
+    height: 380px;
 }
 
 .story-1 .front{
@@ -3265,7 +3265,7 @@ a.menu-order-button{
 .svg-container{
     display: block;
     position: relative;
-    width: 90%;
+    width: 80%;
     padding-bottom: 0;
     vertical-align: middle;
     margin: 0 auto;

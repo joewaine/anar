@@ -9,7 +9,7 @@
 {% for item in craft.entries.section('navigationLinks') %}
 <li>
 
-{% if item.linkUrl %}
+{% if item.extLinkUrl %}
 
 <a data="{{ item.slug }}" class="nav-link futura-bold nav-item" href="{{ item.extLinkUrl }}">
 
@@ -88,9 +88,9 @@
 {% for item in craft.entries.section('navigationLinks') %}
 <li>
 
-{% if item.linkUrl %}
+{% if item.extLinkUrl %}
 
-<a class="nav-link futura-bold" href="{{ item.linkUrl }}">
+<a class="nav-link futura-bold" href="{{ item.extLinkUrl }}">
 
 {% else %}
 

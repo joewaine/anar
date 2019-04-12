@@ -3460,7 +3460,7 @@ fill:#e26b69 !important;
 
 @media (max-width: 768px){
      #stories{
-            height: 144vh;
+            height: 155vh;
      }
 
 
@@ -3485,10 +3485,22 @@ fill:#e26b69 !important;
 margin-top: -40px;
 }
 
+
+.story-modal{
+-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
+}
+
+
 @media (max-width: 768px){
 #shop-svg{
 margin-top: 0;
 }
+
+.story-modal{
+background-size: 100%
+}
+
+
 }
 
 

@@ -36,7 +36,14 @@
 
 
 </head>
+
+{% if craft.request.getUrl() == siteUrl %}
+
 <body class="scrollEffectMagic">
+
+{% else %}
+<body class="scrollEffectMagic" id="order-page">
+{% endif %}
 
 
 

@@ -2819,8 +2819,11 @@ display: none;
 
 
 .image-region{
+
     width: 40%;
     float: right;
+    margin-bottom: 200px;
+    margin-top: -16px;
 }
 
 
@@ -3428,6 +3431,7 @@ display: block;
 
 .svg-container{
     padding-bottom: 60%;
+    width: 100%;
 }
 
 }

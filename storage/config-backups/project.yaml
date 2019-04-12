@@ -1,4 +1,4 @@
-dateModified: 1555059765
+dateModified: 1555059783
 email:
   fromEmail: joe.waine@gmail.com
   fromName: 'ANAR Seattle'
@@ -703,12 +703,22 @@ sections:
     enableVersioning: true
     entryTypes:
       d75256da-5711-4f87-8d57-a864c24d8a88:
+        fieldLayouts:
+          d00941cb-8547-49b8-a39a-2ab8dfde6b25:
+            tabs:
+              -
+                fields:
+                  884ded6e-e21d-4039-a280-cd4460011a16:
+                    required: false
+                    sortOrder: 1
+                name: 'Tab 1'
+                sortOrder: 1
         handle: announcements
         hasTitleField: false
         name: Announcements
         sortOrder: 1
         titleFormat: '{section.name|raw}'
-        titleLabel: null
+        titleLabel: ''
     handle: announcements
     name: Announcements
     propagateEntries: true
@@ -1014,4 +1024,4 @@ volumes:
     sortOrder: '1'
     type: craft\volumes\Local
     url: 'http://testsite.mamnoon.webfactional.com/img/'
-dateApplied: '2019-04-12 02:03:03'
+dateApplied: '2019-04-12 02:18:54'

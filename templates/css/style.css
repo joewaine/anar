@@ -2816,10 +2816,6 @@ display: none;
     font-family: 'futura bold italic';
     font-style: italic;
     font-size: 22px;
-}
-
-
-.text-content{
     float: left;
     width: 40%;
     margin-right: 40px;
@@ -3639,6 +3635,15 @@ padding-top: 0;
     width: 100%;
 }
 
+.announcementText p{
+    margin-bottom: 0;
+}
+
+
+.announcementText p a,
+.announcementText a{
+    color: #fff;
+}
 
 
 @media (max-width: 960px){

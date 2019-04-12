@@ -8,7 +8,19 @@
 <ul class="main-nav" id="desktopNav">
 {% for item in craft.entries.section('navigationLinks') %}
 <li>
+
+{% if item.linkUrl %}
+
+<a data="{{ item.slug }}" class="nav-link futura-bold nav-item" href="{{ item.extLinkUrl }}">
+
+{% else %}
+
 <a data="{{ item.slug }}" class="nav-link futura-bold nav-item" href="#{{ item.slug }}">
+
+
+{% endif %}
+
+
 {{ item.title }}
 </a>
 </li>
@@ -75,7 +87,18 @@
 <ul class="main-nav mobile">
 {% for item in craft.entries.section('navigationLinks') %}
 <li>
+
+{% if item.linkUrl %}
+
+<a class="nav-link futura-bold" href="{{ item.linkUrl }}">
+
+{% else %}
+
 <a class="nav-link futura-bold" href="#{{ item.slug }}">
+
+
+{% endif %}
+
 {{ item.title }}
 </a>
 </li>
@@ -116,7 +139,7 @@
 {% for item in craft.entries.section('mailingList') %}
   <li>
     <div class="mailing-list-join">
-    <a href="{{ item.linkUrl }}">
+    <a href="{{ item.extLinkUrl }}">
       {# join mailing list #}
 <img src="/img/mailing-list.svg">
     </a>

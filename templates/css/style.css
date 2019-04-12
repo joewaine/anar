@@ -319,7 +319,17 @@ nav li{
 a.nav-link{
     color: #fff;
     letter-spacing: 1px;
+
+-webkit-transition: all .25s ease;
+transition: all .25s ease;
+
 }
+
+a.nav-link:hover{
+    color: #ccc !important;
+ text-decoration: none;
+}
+
 
 
 ul.main-nav{
@@ -479,7 +489,8 @@ li .mailing-list-join a img {
 #press{
         background-color: #fff;
         background-image: url('../img/PRESS-BG-3.svg') !important;
-        background-size: 125%;
+        /*background-size: 125%;*/
+        background-size: 110%;
         padding-top: 0;
         background-color: #ffe98d;
     }
@@ -1612,7 +1623,7 @@ html, body {
         background: transparent;
             min-height: auto;
             height: 100vh;
-                margin-top: -70px;
+                /*margin-top: -70px;*/
 }
 
 @media (max-width: 768px){
@@ -2234,7 +2245,7 @@ fill: rgb(187, 155, 197) !important;
     background-position: center 60px;
     background-size: 100%;
     padding-bottom: 0;
-    height: 100vh;
+    height: 120vh;
 
 }
 
@@ -3046,8 +3057,8 @@ a.menu-order-button{
 
 .menu-order-button{
     display: block;
-    width: 60%;
-    margin: 20px auto 0;
+    width: 50%;
+    margin: 90px auto 0;
 }
 
 .menu-order-button svg{
@@ -3254,7 +3265,7 @@ a.menu-order-button{
 .svg-container{
     display: block;
     position: relative;
-    width: 70%;
+    width: 90%;
     padding-bottom: 0;
     vertical-align: middle;
     margin: 0 auto;
@@ -3517,4 +3528,27 @@ background-size: 100%
 
 }
 
+
+
+.navwave.desktop svg{
+    display: block;
+}
+
+.mob-men svg{
+    display: none;
+}
+
+@media (max-width: 960px){
+
+
+.navwave.desktop svg{
+    display: none;
+}
+
+.mob-men svg{
+    display: block;
+}
+
+
+}
 

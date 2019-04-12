@@ -1,4 +1,4 @@
-dateModified: 1554829976
+dateModified: 1555059726
 email:
   fromEmail: joe.waine@gmail.com
   fromName: 'ANAR Seattle'
@@ -59,6 +59,23 @@ fields:
     instructions: ''
     name: 'press title'
     searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  49b1fd84-3620-4622-b3e2-9520b78dba82:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: extLinkUrl
+    instructions: ''
+    name: 'external link url'
+    searchable: true
     settings:
       charLimit: ''
       code: ''
@@ -665,6 +682,26 @@ sections:
       maxLevels: null
       uid: 76a0d7fc-f678-4ac2-a657-f781ff6c61e3
     type: structure
+  3524bfae-8852-45c4-a9de-e3435e9270ad:
+    enableVersioning: true
+    entryTypes:
+      d75256da-5711-4f87-8d57-a864c24d8a88:
+        handle: announcements
+        hasTitleField: false
+        name: Announcements
+        sortOrder: 1
+        titleFormat: '{section.name|raw}'
+        titleLabel: null
+    handle: announcements
+    name: Announcements
+    propagateEntries: true
+    siteSettings:
+      a7e30a91-6a2d-4c86-acb4-e382ad3aa564:
+        enabledByDefault: true
+        hasUrls: true
+        template: ''
+        uriFormat: announcements
+    type: single
   60bc6f6e-43b3-4fbd-b3d9-bd3a8c36f330:
     enableVersioning: '1'
     entryTypes:
@@ -806,11 +843,21 @@ sections:
     enableVersioning: '1'
     entryTypes:
       e234a6ae-3553-4805-abda-e82d84813c41:
+        fieldLayouts:
+          4c5a4741-46a8-43d1-a165-9ae83195d17c:
+            tabs:
+              -
+                fields:
+                  49b1fd84-3620-4622-b3e2-9520b78dba82:
+                    required: false
+                    sortOrder: 1
+                name: 'Tab 1'
+                sortOrder: 1
         handle: navigationLinks
-        hasTitleField: '1'
+        hasTitleField: true
         name: 'Navigation Links'
-        sortOrder: '1'
-        titleFormat: null
+        sortOrder: 1
+        titleFormat: ''
         titleLabel: Title
     handle: navigationLinks
     name: 'Navigation Links'
@@ -950,4 +997,4 @@ volumes:
     sortOrder: '1'
     type: craft\volumes\Local
     url: 'http://testsite.mamnoon.webfactional.com/img/'
-dateApplied: '2019-04-11 23:42:54'
+dateApplied: '2019-04-12 02:02:45'

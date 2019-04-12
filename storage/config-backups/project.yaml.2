@@ -1,4 +1,4 @@
-dateModified: 1554790667
+dateModified: 1555051395
 email:
   fromEmail: joe.waine@gmail.com
   fromName: 'ANAR Seattle'
@@ -59,6 +59,23 @@ fields:
     instructions: ''
     name: 'press title'
     searchable: '1'
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  49b1fd84-3620-4622-b3e2-9520b78dba82:
+    contentColumnType: text
+    fieldGroup: f43c907f-5583-40b3-9eaa-e88780578b62
+    handle: extLinkUrl
+    instructions: ''
+    name: 'external link url'
+    searchable: true
     settings:
       charLimit: ''
       code: ''
@@ -806,11 +823,21 @@ sections:
     enableVersioning: '1'
     entryTypes:
       e234a6ae-3553-4805-abda-e82d84813c41:
+        fieldLayouts:
+          4c5a4741-46a8-43d1-a165-9ae83195d17c:
+            tabs:
+              -
+                fields:
+                  49b1fd84-3620-4622-b3e2-9520b78dba82:
+                    required: false
+                    sortOrder: 1
+                name: 'Tab 1'
+                sortOrder: 1
         handle: navigationLinks
-        hasTitleField: '1'
+        hasTitleField: true
         name: 'Navigation Links'
-        sortOrder: '1'
-        titleFormat: null
+        sortOrder: 1
+        titleFormat: ''
         titleLabel: Title
     handle: navigationLinks
     name: 'Navigation Links'
@@ -946,8 +973,8 @@ volumes:
     hasUrls: true
     name: img
     settings:
-      path: '@webroot/img/'
+      path: 'http://testsite.mamnoon.webfactional.com/img/'
     sortOrder: '1'
     type: craft\volumes\Local
-    url: '@webroot/img/'
-dateApplied: '2019-04-09 10:12:56'
+    url: 'http://testsite.mamnoon.webfactional.com/img/'
+dateApplied: '2019-04-12 02:02:06'

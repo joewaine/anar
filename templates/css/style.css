@@ -3631,6 +3631,13 @@ padding-top: 0;
 .announcementText p a,
 .announcementText a{
     color: #fff;
+    text-decoration: none;
+}
+
+
+.announcementText p a:hover,
+.announcementText a:hover{
+    color: rgb(86, 86, 86)
 }
 
 

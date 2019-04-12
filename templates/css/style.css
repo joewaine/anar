@@ -440,6 +440,7 @@ ul.main-nav li{
 
 body{
     overflow-x: hidden;
+position: relative;
 }
 
 #landing{
@@ -490,9 +491,10 @@ li .mailing-list-join a img {
         background-color: #fff;
         background-image: url('../img/PRESS-BG-3.svg') !important;
         /*background-size: 125%;*/
-        background-size: 110%;
+ 
+            background-size: 135%;
         padding-top: 0;
-        background-color: #ffe98d;
+        /*background-color: te;*/
     }
 
 .info-third{
@@ -502,7 +504,8 @@ li .mailing-list-join a img {
     background-position: center center;
     color: transparent;
     position: relative;
-    margin-top: 90px;
+    /*margin-top: 90px;*/
+        margin-top: 160px;
     transition: margin-top 0.5s ease;
 }
 
@@ -629,7 +632,7 @@ li .mailing-list-join a img {
     border-radius: 10px;
     width: 90%;
     margin: 0 auto;
-    height: 380px;
+    height: 330px;
 }
 
 .story-1 .front{
@@ -1392,7 +1395,7 @@ map > div {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 270px;
+    height: 230px;
 }
 
 
@@ -1783,7 +1786,7 @@ position: fixed;
 
 
 #landing-logo{
-    width: 90%;
+    width: 80%;
     }
 
 .landing-section{
@@ -2116,10 +2119,11 @@ svg path{
 
 #animatedSvg,
 #animatedSvg2{
-    width: 100%;
+    width: 75%;
+    width: 70%;
     margin: 0 auto;
     /*padding-top: 100px;*/
-    padding-top: 22vh;
+    padding-top: 25vh;
 }
 
 
@@ -2225,7 +2229,7 @@ fill: rgb(187, 155, 197) !important;
     background-size: 100%;
     cursor: pointer;
     position: absolute;
-    top: 14px;
+    top: 0;
     right: 12px;
     width: 18px;
     height: 40px;
@@ -2284,7 +2288,10 @@ fill: rgb(187, 155, 197) !important;
 
 
 #info-page .container{
+
     /*height: auto;*/
+
+    width: 80%;
 }
 
 
@@ -3076,7 +3083,7 @@ a.menu-order-button{
 .menu-order-button{
     display: block;
     width: 50%;
-    margin: 90px auto 0;
+    margin: 50px auto 0;
 }
 
 .menu-order-button svg{
@@ -3230,7 +3237,7 @@ a.menu-order-button{
     -webkit-transition: all .7s;
     transition: all .7s;
     width: 70%;
-    margin-top: 35%;
+    margin-top: 20%;
     position: absolute;
     left: 50%;
     margin-left: -35%;
@@ -3242,7 +3249,7 @@ a.menu-order-button{
 .info-third svg.hold-original{
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
-    margin-top: -15%;
+    margin-top: -6%;
 }
 
 
@@ -3281,43 +3288,43 @@ a.menu-order-button{
 
 
 .svg-container{
-    display: block;
+/*    display: block;
     position: relative;
     width: 80%;
     padding-bottom: 0;
     vertical-align: middle;
-    margin: 0 auto;
+    margin: 0 auto;*/
 }
 
 
 .svg-container2{
-        display: block;
+/*        display: block;
     position: relative;
     width: 100%;
     padding-bottom: 100%;
     vertical-align: middle;
-    margin: 0 auto;
+    margin: 0 auto;*/
 }
 
 
 
 .svg-container2 svg{
-display: block;
+/*display: block;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100%;*/
 }
 
 
 
 
 .svg-container svg{
-display: block;
+/*display: block;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100%;*/
 }
 
 @media (max-width: 1500px){
@@ -3446,7 +3453,7 @@ display: block;
 
 
 .svg-container{
-    padding-bottom: 60%;
+    /*padding-bottom: 60%;*/
     width: 100%;
 }
 
@@ -3515,6 +3522,7 @@ fill:#d7555d !important;
 
 #shop-svg{
 margin-top: -40px;
+    width: 90%;
 }
 
 
@@ -3615,14 +3623,15 @@ padding-top: 0;
 
 
 .announcements{
-        width: 100%;
-    position: absolute;
+    width: 100%;
+    position: fixed;
     bottom: 0;
     background: #d7555d;
+
     padding: 15px 0;
     text-align: center;
     color: #fff;
-        z-index: 1000;
+    z-index: 1000;
 }
 
 .announcementContainer{
@@ -3712,3 +3721,8 @@ padding-top: 0;
 
 
 
+
+.announcement-chamber{
+    position: relative;
+    width: 100%;
+}

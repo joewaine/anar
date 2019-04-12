@@ -66,7 +66,7 @@
 {% if announcement.announcementText %}
 
 <div class="announcements">
-
+<div class="announcement-chamber">
 <!-- <button class="close-announcement">X</button> -->
 <div class="announcementContainer">
 
@@ -79,6 +79,8 @@
 
 </div>
 <div class="close">x</div>
+</div>
+
 </div>
 {% endif %}
 {% endfor %}
@@ -540,7 +542,7 @@ $('body').on('scroll', function() {
 $('.announcements .close').click(function(){
 
 
-$(this).parent().fadeOut();
+$(this).parent().parent().fadeOut();
 
 });
 

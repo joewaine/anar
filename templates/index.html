@@ -62,6 +62,9 @@
 
 
 {% for announcement in craft.entries.section('Announcements') %}
+
+{% if announcement %}
+
 <div class="announcements">
 
 <!-- <button class="close-announcement">X</button> -->
@@ -77,7 +80,7 @@
 </div>
 <div class="close">x</div>
 </div>
-
+{% endif %}
 {% endfor %}
 
 
@@ -533,6 +536,13 @@ $('body').on('scroll', function() {
 
 });
 
+
+$('.announcements .close').click(function(){
+
+
+$(this).parent().fadeOut();
+
+});
 
 </script>
 

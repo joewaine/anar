@@ -632,7 +632,7 @@ li .mailing-list-join a img {
     border-radius: 10px;
     width: 90%;
     margin: 0 auto;
-    height: 270px;
+    height: 250px;
 }
 
 .story-1 .front{
@@ -1396,7 +1396,7 @@ map > div {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 180px;
+    height: 160px;
 }
 
 
@@ -1421,7 +1421,7 @@ map > div {
 
 .mod-info-content{
     color: #848484;
-    padding-top: 260px;
+    padding-top: 240px;
 
     /*margin-top: -200px;*/
 }

@@ -491,7 +491,7 @@ li .mailing-list-join a img {
         background-color: #fff;
         background-image: url('../img/PRESS-BG-3.svg') !important;
         /*background-size: 125%;*/
- 
+
             background-size: 135%;
         padding-top: 0;
         /*background-color: te;*/
@@ -815,6 +815,7 @@ width: 100%;
     padding-top: 0;
     padding-bottom: 0;
     margin-top: -5px;
+    background-size: auto 130%;
 }
 
 

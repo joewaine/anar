@@ -2428,7 +2428,7 @@ left: 0;
 
    fill: #fade81;
 }
-
+            
 }
 
 
@@ -3650,6 +3650,7 @@ padding-top: 0;
 
 .announcementText p{
     margin-bottom: 0;
+line-height: 1.6em;
 }
 
 
@@ -3663,6 +3664,11 @@ padding-top: 0;
 .announcementText p a:hover,
 .announcementText a:hover{
     color: rgb(86, 86, 86)
+}
+
+.announcementText a{
+
+color: #fcef57 !important;
 }
 
 
